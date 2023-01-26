@@ -1,0 +1,62 @@
+{
+"semi_licenseplate_F": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_F",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate", ["semi_bumper_F"],[],{"pos":{"x":0.0, "y":-4.02, "z":0.57}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate", ["semi_frame"],[],{"pos":{"x":0.0, "y":3.640, "z":0.655}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_alt": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R_alt",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate", ["semi_cargobox_floorframe"],[],{"pos":{"x":0.9, "y":5.178, "z":1.03}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_alt2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R_alt2",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate", ["semi_flatbed"],[],{"pos":{"x":0.0, "y":5.178, "z":1.03}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_alt3": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R_alt3",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate", ["tiltframe"],[],{"pos":{"x":0.39, "y":6.23, "z":0.76}, "rot":{"x":12, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+}

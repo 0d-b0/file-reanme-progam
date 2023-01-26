@@ -1,0 +1,216 @@
+{
+"semi_mirror_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Mirror",
+        "value":300,
+    },
+    "slotType" : "semi_mirror_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_mirrorframe_R", ["semi_mirror_R","semi_door_R"]],
+         ["semi_mirror_R", ["semi_mirror_R"]],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--MIRROR--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_mirror_R"},
+         {"nodeWeight":2.0},
+         ["mi1r",-1.18, -1.70, 2.06],
+         ["mi2r",-1.35, -1.64, 2.06],
+         ["mi3r",-1.18, -1.70, 2.45],
+         ["mi4r",-1.35, -1.64, 2.45],
+         //["mi5r",-1.27, -1.69, 2.26],
+         ["mi6r",-1.22, -1.66, 1.89],
+         {"selfCollision":false},
+         {"collision":false},
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--MIRROR--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2000800,"beamDamp":96},
+          {"beamDeform":100000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["mi1r","mi2r"],
+          ["mi3r","mi4r"],
+          ["mi1r","mi3r"],
+          ["mi2r","mi4r"],
+
+          ["mi1r","mi4r"],
+          ["mi2r","mi3r"],
+
+          //["mi1r","mi5r"],
+          //["mi2r","mi5r"],
+          //["mi3r","mi5r"],
+          //["mi4r","mi5r"],
+
+          ["mi1r","mi6r"],
+          ["mi2r","mi6r"],
+          //["mi5r","mi6r"],
+
+          {"beamDeform":20000,"beamStrength":"FLT_MAX"},
+          ["mi3r","mi6r"],
+          ["mi4r","mi6r"],
+
+          //attach
+          {"beamSpring":1200800,"beamDamp":96},
+          {"beamDeform":10000,"beamStrength":15000},
+          {"breakGroup":"mirror_R_a"},
+          ["mi3r","d12r"],
+          ["mi3r","d11r"],
+          ["mi4r","d12r"],
+          ["mi4r","d11r"],
+
+          //["mi5r","d12r"],
+          //["mi5r","d11r"],
+
+          ["mi1r","d11r"],
+          ["mi1r","d12r"],
+
+          {"breakGroup":"mirror_R_b"},
+          ["mi1r","d8r"],
+          ["mi1r","d9r"],
+          ["mi2r","d8r"],
+          ["mi2r","d9r"],
+
+          //["mi5r","d8r"],
+          //["mi5r","d9r"],
+
+          ["mi6r","d8r"],
+          ["mi6r","d9r"],
+
+          ["mi6r","d11r"],
+          ["mi6r","d12r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":40},
+            {"groundModel":"metal"},
+            {"group":"semi_mirror_R"},
+            ["mi3r","mi1r","mi2r"],
+            ["mi3r","mi2r","mi4r"],
+            ["mi1r","mi6r","mi2r"],
+
+            //["mi4r","mi5r","mi3r"],
+            //["mi4r","mi2r","mi5r"],
+            //["mi5r","mi2r","mi1r"],
+            //["mi5r","mi1r","mi3r"],
+            {"group":""},
+    ],
+},
+"semi_mirror_L": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Mirror",
+        "value":300,
+    },
+    "slotType" : "semi_mirror_L",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_mirrorframe_L", ["semi_mirror_L","semi_door_L"]],
+         ["semi_mirror_L", ["semi_mirror_L"]],
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--MIRROR--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_mirror_L"},
+         {"nodeWeight":2.0},
+         ["mi1l", 1.18, -1.70, 2.06],
+         ["mi2l", 1.35, -1.64, 2.06],
+         ["mi3l", 1.18, -1.70, 2.45],
+         ["mi4l", 1.35, -1.64, 2.45],
+         //["mi5l", 1.27, -1.69, 2.26],
+         ["mi6l", 1.22, -1.66, 1.89],
+         {"selfCollision":false},
+         {"collision":false},
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--MIRROR--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2000800,"beamDamp":96},
+          {"beamDeform":100000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["mi1l","mi2l"],
+          ["mi3l","mi4l"],
+          ["mi1l","mi3l"],
+          ["mi2l","mi4l"],
+
+          ["mi1l","mi4l"],
+          ["mi2l","mi3l"],
+
+          //["mi1l","mi5l"],
+          //["mi2l","mi5l"],
+          //["mi3l","mi5l"],
+          //["mi4l","mi5l"],
+
+          ["mi1l","mi6l"],
+          ["mi2l","mi6l"],
+          //["mi5l","mi6l"],
+
+          {"beamDeform":20000,"beamStrength":"FLT_MAX"},
+          ["mi3l","mi6l"],
+          ["mi4l","mi6l"],
+
+          //attach
+          {"beamSpring":1200800,"beamDamp":96},
+          {"beamDeform":10000,"beamStrength":15000},
+          {"breakGroup":"mirror_L_a"},
+          ["mi3l","d12l"],
+          ["mi3l","d11l"],
+          ["mi4l","d12l"],
+          ["mi4l","d11l"],
+
+          //["mi5l","d12l"],
+          //["mi5l","d11l"],
+
+          ["mi1l","d11l"],
+          ["mi1l","d12l"],
+
+          {"breakGroup":"mirror_L_b"},
+          ["mi1l","d8l"],
+          ["mi1l","d9l"],
+          ["mi2l","d8l"],
+          ["mi2l","d9l"],
+
+          //["mi5l","d8l"],
+          //["mi5l","d9l"],
+
+          ["mi6l","d8l"],
+          ["mi6l","d9l"],
+
+          ["mi6l","d11l"],
+          ["mi6l","d12l"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"dragCoef":40},
+            {"groundModel":"metal"},
+            {"group":"semi_mirror_L"},
+            ["mi3l","mi2l","mi1l"],
+            ["mi3l","mi4l","mi2l"],
+            ["mi1l","mi2l","mi6l"],
+
+            //["mi4l","mi3l","mi5l"],
+            //["mi4l","mi5l","mi2l"],
+            //["mi5l","mi1l","mi2l"],
+            //["mi5l","mi3l","mi1l"],
+            {"group":""},
+    ],
+},
+}

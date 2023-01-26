@@ -1,0 +1,49 @@
+{
+"semi_headlight": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Headlights",
+        "value":180,
+    },
+    "slotType" : "semi_headlight",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //lights
+         ["semi_headlights_frame", ["semi_hood"]],
+
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"semi_lights", "deformMaterialDamaged":"semi_lights_dmg"},
+         ["semi_headlights_R", ["semi_hood"]],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"semi_lights", "deformMaterialDamaged":"semi_lights_dmg"},
+         ["semi_headlights_L", ["semi_hood"]],
+         {"deformGroup":"headlightglass_L_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_headlightglass_L", ["semi_hood"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound3", "deformVolume":0.6}],
+         {"deformGroup":"headlightglass_R_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_headlightglass_R", ["semi_hood"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound4", "deformVolume":0.6}],
+
+         {"deformGroup":""},
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+    ],
+    "props": [
+        ["func"      , "mesh"              , "idRef:", "idX:", "idY:"            , "baseRotation"        , "rotation"                 , "translation"        , "min", "max", "offset", "multiplier"],
+        {
+            "lightInnerAngle":0,
+            "lightOuterAngle":120,
+            "lightColor":{"r":255, "g":255, "b":170, "a":255},
+            "lightAttenuation":{"x":0, "y":1, "z":1},
+            "lightCastShadows":true,
+            "flareName":"vehicleHeadLightFlare",
+            "cookieName":"art/special/BNG_light_cookie_headlight.dds"
+            "texSize":512,
+            "shadowSoftness":0.5,
+        },
+        //low beams angled right slightly to avoid blinding oncoming traffic
+        ["lowbeam"    , "SPOTLIGHT"        , "he1rr", "h15rr", "he2rr", {"x":190, "y":65, "z":-10} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.4, "y":0.45, "z":0.01},"lightRange":50,"lightBrightness":0.4,"lightOuterAngle":95,"flareScale":0.07,"deformGroup":"headlightglass_R_break"}],
+        ["lowbeam"    , "SPOTLIGHT"        , "he1ll", "h15ll", "he2ll", {"x":-20, "y":65, "z":10} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.4, "y":0.45, "z":-0.01},"lightRange":50,"lightBrightness":0.4,"lightOuterAngle":95,"flareScale":0.07,"deformGroup":"headlightglass_L_break"}],
+        //high beams
+        ["highbeam" ,   "SPOTLIGHT"        , "he1rr", "h15rr", "he2rr", {"x":190, "y":65, "z":-5} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.4, "y":0.7, "z":0.01},"lightRange":80,"lightBrightness":0.8,"lightOuterAngle":80,"flareScale":0.08,"deformGroup":"headlightglass_R_break"}],
+        ["highbeam" ,   "SPOTLIGHT"        , "he1ll", "h15ll", "he2ll", {"x":-20, "y":65, "z":5} , {"x":0, "y":0, "z":0}    , {"x":0, "y":0, "z":0}, 0, 0, 0, 1, {"baseTranslation":{"x":0.4, "y":0.7, "z":-0.01},"lightRange":80,"lightBrightness":0.8,"lightOuterAngle":80,"flareScale":0.08,"deformGroup":"headlightglass_L_break"}],
+     ],
+},
+}

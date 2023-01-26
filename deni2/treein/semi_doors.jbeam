@@ -1,0 +1,410 @@
+{
+"semi_door_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Door",
+        "value":400,
+    },
+    "slotType" : "semi_door_R",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_mirror_R","semi_mirror_R", "Right Mirror"],
+        ["semi_doorglass_R","semi_doorglass_R", "Right Door Glass"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_door_R", ["semi_door_R"]],
+         {"deformGroup":""},
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--DOOR--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_door_R"},
+         {"nodeWeight":3.06},
+         ["d1r",-0.955, -1.125, 1.18],
+         ["d2r",-0.945, -1.59, 1.16],
+         ["d3r",-0.9, -2.01, 1.18],
+
+         ["d7r",-0.955, -1.125, 1.94],
+         ["d8r",-0.945, -1.59, 1.94],
+         ["d9r",-0.9, -2.01, 1.94],
+
+         ["d11r",-0.91, -1.86, 2.47],
+         ["d12r",-0.94, -1.49, 2.48],
+         ["d13r",-0.94, -1.135, 2.47],
+
+         {"group":""},
+         {"selfCollision":false},
+         {"collision":false},
+         //rigidifier
+         ["d15r",-0.66, -1.32, 1.58],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--DOOR--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2800800,"beamDamp":120},
+          {"beamDeform":70000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["d1r","d2r"],
+          ["d2r","d3r"],
+          ["d7r","d8r"],
+          ["d8r","d9r"],
+          //main shape vertical
+          ["d1r","d7r"],
+          ["d2r","d8r"],
+          ["d3r","d9r"],
+          //window perimeter
+          ["d9r","d11r"],
+          ["d11r","d12r"],
+          ["d12r","d13r"],
+          ["d13r","d7r"],
+          //surficial crossing
+          {"beamDeform":17000,"beamStrength":"FLT_MAX"},
+          ["d9r","d2r"],
+          ["d3r","d8r"],
+          ["d8r","d1r"],
+          ["d2r","d7r"],
+          //rigids
+          {"beamDeform":12000,"beamStrength":"FLT_MAX"},
+          ["d1r","d3r"],
+          ["d7r","d9r"],
+
+          //corner rigids
+          {"beamDeform":12000,"beamStrength":"FLT_MAX"},
+          ["d11r","d13r"],
+          ["d12r","d7r"],
+          ["d12r","d9r"],
+
+          //extra pillar
+          ["d8r","d12r"],
+
+          //rigidifier
+          {"beamDeform":4500,"beamStrength":"FLT_MAX"},
+          ["d15r","d1r"],
+          ["d15r","d2r"],
+          ["d15r","d3r"],
+          ["d15r","d7r"],
+          ["d15r","d8r"],
+          ["d15r","d9r"],
+          ["d15r","d11r"],
+          ["d15r","d12r"],
+          ["d15r","d13r"],
+          //hinge
+          {"beamSpring":6600800,"beamDamp":200},
+          {"beamDeform":35000,"beamStrength":71000},
+          {"breakGroup":"doorhinge_R_a"},
+          ["d3r","dc4rr"],
+          ["d2r","dc4rr"],
+          ["d9r","dc4rr"],
+          ["d15r","dc2rrr"],
+          {"breakGroup":"doorhinge_R_b"},
+          ["d9r","dc2rrr"],
+          ["d8r","dc2rrr"],
+          ["d3r","dc2rrr"],
+          ["d15r","dc4rr"],
+          {"breakGroup":""},
+          //latch
+          {"beamSpring":6600800,"beamDamp":200},
+          {"beamDeform":28000,"beamStrength":45000},
+          {"breakGroup":"doorlatch_R"},
+          ["d15r","dc9rr"],
+          ["d15r","dc13rrr"],
+          ["d1r","dc9rr"],
+          ["d7r","dc13rrr"],
+          ["d13r","dc13rrr"],
+          ["d13r","dc15rrr"],
+
+          ["d11r","dc18rr"],
+          ["d9r","dc2rr"],
+          {"breakGroup":""},
+          //support beams
+          {"beamSpring":1200800,"beamDamp":112,"beamDeform":35000,"beamStrength":170000},
+          {"beamPrecompression":1.0, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
+          ["d7r","dc13rr"],
+          ["d1r","dc11rr"],
+
+          ["d7r","dc8rr"],
+          ["d12r","dc16rr"],
+          ["d13r","dc15rr"],
+          ["d11r","dc17rr"],
+
+          ["d1r","dc13"],
+          ["d2r","dc13"],
+          ["d7r","dc13"],
+          ["d8r","dc13"],
+          ["d12r","dc13"],
+          ["d13r","dc13"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_door_R"},
+            {"groundModel":"metal"},
+            ["d8r","d2r","d3r"],
+            ["d8r","d3r","d9r"],
+
+            ["d7r","d1r","d2r"],
+            ["d7r","d2r","d8r"],
+
+            ["d13r","d7r","d8r"],
+            ["d13r","d8r","d12r"],
+            ["d12r","d8r","d9r"],
+            ["d13r","d9r","d11r"],
+            {"group":""},
+    ],
+},
+"semi_door_L": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Door",
+        "value":400,
+    },
+    "slotType" : "semi_door_L",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_mirror_L","semi_mirror_L", "Left Mirror"],
+        ["semi_doorglass_L","semi_doorglass_L", "Left Door Glass"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_door_L", ["semi_door_L"]],
+         {"deformGroup":""},
+     ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--DOOR--
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_door_L"},
+         {"nodeWeight":3.06},
+         ["d1l", 0.955, -1.125, 1.18],
+         ["d2l", 0.945, -1.59, 1.16],
+         ["d3l", 0.9, -2.01, 1.18],
+
+         ["d7l", 0.955, -1.125, 1.94],
+         ["d8l", 0.945, -1.59, 1.94],
+         ["d9l", 0.9, -2.01, 1.94],
+
+         ["d11l", 0.91, -1.86, 2.47],
+         ["d12l", 0.94, -1.49, 2.48],
+         ["d13l", 0.96, -1.135, 2.47],
+
+         {"group":""},
+         {"selfCollision":false},
+         {"collision":false},
+         //rigidifier
+         ["d15l", 0.66, -1.32, 1.58],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--DOOR--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2800800,"beamDamp":120},
+          {"beamDeform":70000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["d1l","d2l"],
+          ["d2l","d3l"],
+          ["d7l","d8l"],
+          ["d8l","d9l"],
+          //main shape vertical
+          ["d1l","d7l"],
+          ["d2l","d8l"],
+          ["d3l","d9l"],
+          //window perimeter
+          ["d9l","d11l"],
+          ["d11l","d12l"],
+          ["d12l","d13l"],
+          ["d13l","d7l"],
+          //surficial crossing
+          {"beamDeform":17000,"beamStrength":"FLT_MAX"},
+          ["d9l","d2l"],
+          ["d3l","d8l"],
+          ["d8l","d1l"],
+          ["d2l","d7l"],
+          //rigids
+          {"beamDeform":12000,"beamStrength":"FLT_MAX"},
+          ["d1l","d3l"],
+          ["d7l","d9l"],
+
+          //corner rigids
+          {"beamDeform":12000,"beamStrength":"FLT_MAX"},
+          ["d11l","d13l"],
+          ["d12l","d7l"],
+          ["d12l","d9l"],
+
+          //extra pillar
+          ["d8l","d12l"],
+
+          //rigidifier
+          {"beamDeform":4500,"beamStrength":"FLT_MAX"},
+          ["d15l","d1l"],
+          ["d15l","d2l"],
+          ["d15l","d3l"],
+          ["d15l","d7l"],
+          ["d15l","d8l"],
+          ["d15l","d9l"],
+          ["d15l","d11l"],
+          ["d15l","d12l"],
+          ["d15l","d13l"],
+          //hinge
+          {"beamSpring":6600800,"beamDamp":200},
+          {"beamDeform":35000,"beamStrength":71000},
+          {"breakGroup":"doorhinge_L_a"},
+          ["d3l","dc4ll"],
+          ["d2l","dc4ll"],
+          ["d9l","dc4ll"],
+          ["d15l","dc2lll"],
+          {"breakGroup":"doorhinge_L_b"},
+          ["d9l","dc2lll"],
+          ["d8l","dc2lll"],
+          ["d3l","dc2lll"],
+          ["d15l","dc4ll"],
+          {"breakGroup":""},
+          //latch
+          {"beamSpring":6600800,"beamDamp":200},
+          {"beamDeform":28000,"beamStrength":45000},
+          {"breakGroup":"doorlatch_L"},
+          ["d15l","dc9ll"],
+          ["d15l","dc13lll"],
+          ["d1l","dc9ll"],
+          ["d7l","dc13lll"],
+          ["d13l","dc13lll"],
+          ["d13l","dc15lll"],
+
+          ["d11l","dc18ll"],
+          ["d9l","dc2ll"],
+          {"breakGroup":""},
+          //support beams
+          {"beamSpring":1200800,"beamDamp":112,"beamDeform":35000,"beamStrength":170000},
+          {"beamPrecompression":1.0, "beamType":"|SUPPORT", "beamLongBound":4, "beamShortBound":1},
+          ["d7l","dc13ll"],
+          ["d1l","dc11ll"],
+
+          ["d7l","dc8ll"],
+          ["d12l","dc16ll"],
+          ["d13l","dc15ll"],
+          ["d11l","dc17ll"],
+
+          ["d1l","dc13"],
+          ["d2l","dc13"],
+          ["d7l","dc13"],
+          ["d8l","dc13"],
+          ["d12l","dc13"],
+          ["d13l","dc13"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_door_L"},
+            {"groundModel":"metal"},
+            ["d8l","d3l","d2l"],
+            ["d8l","d9l","d3l"],
+
+            ["d7l","d2l","d1l"],
+            ["d7l","d8l","d2l"],
+
+            ["d13l","d8l","d7l"],
+            ["d13l","d12l","d8l"],
+            ["d12l","d9l","d8l"],
+            ["d13l","d11l","d9l"],
+            {"group":""},
+    ],
+},
+"semi_doorglass_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Door Glass",
+        "value":50,
+    },
+    "slotType" : "semi_doorglass_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"doorglass_R_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_doorglass_R", ["semi_door_R"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound5", "deformVolume":0.7}],
+         {"deformGroup":"doorglass_R_break", "deformMaterialBase":"semi_glass_int", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_doorglass_R_int", ["semi_door_R"]],
+         {"deformGroup":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamPrecompression":1, "beamLongBound":1.0, "beamShortBound":1.0},
+          //door glass
+          {"beamSpring":2800800,"beamDamp":80},
+          {"beamDeform":13000,"beamStrength":12000},
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          {"deformGroup":"doorglass_R_break", "deformationTriggerRatio":0.02},
+          {"breakGroup":"doorglass_R"},
+          ["d13r","d8r"],
+          ["d11r","d8r"],
+
+          ["d11r","d15r"],
+          ["d12r","d15r"],
+          ["d13r","d15r"],
+
+          ["d8r","d11r"],
+          ["d8r","d13r"],
+
+          ["d13r","d9r"],
+          ["d11r","d7r"],
+
+          ["d12r","d7r"],
+          ["d12r","d9r"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+    ],
+},
+"semi_doorglass_L": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Door Glass",
+        "value":50,
+    },
+    "slotType" : "semi_doorglass_L",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         {"deformGroup":"doorglass_L_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_doorglass_L", ["semi_door_L"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound6", "deformVolume":0.7}],
+         {"deformGroup":"doorglass_L_break", "deformMaterialBase":"semi_glass_int", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_doorglass_L_int", ["semi_door_L"]],
+         {"deformGroup":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamType":"|NORMAL", "beamPrecompression":1, "beamLongBound":1.0, "beamShortBound":1.0},
+          //door glass
+          {"beamSpring":2800800,"beamDamp":80},
+          {"beamDeform":13000,"beamStrength":12000},
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          {"deformGroup":"doorglass_L_break", "deformationTriggerRatio":0.02},
+          {"breakGroup":"doorglass_L"},
+          ["d13l","d8l"],
+          ["d11l","d8l"],
+
+          ["d11l","d15l"],
+          ["d12l","d15l"],
+          ["d13l","d15l"],
+
+          ["d8l","d11l"],
+          ["d8l","d13l"],
+
+          ["d13l","d9l"],
+          ["d11l","d7l"],
+
+          ["d12l","d7l"],
+          ["d12l","d9l"],
+          {"breakGroup":""},
+          {"deformGroup":""},
+          {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+    ],
+},
+}

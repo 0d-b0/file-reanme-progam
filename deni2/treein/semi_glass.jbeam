@@ -1,0 +1,75 @@
+{
+"semi_glass_daycab": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Day Cab Glass",
+        "value":400,
+    },
+    "slotType" : "semi_glass_daycab",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         //glass
+         {"deformGroup":"windshield_R_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_windshield_R", ["semi_daycab_roof","semi_daycab_cowl"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>impact_glass_windscreen_01", "deformVolume":0.7}],
+
+         {"deformGroup":"windshield_L_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_windshield_L", ["semi_daycab_roof","semi_daycab_cowl"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>impact_glass_windscreen_01", "deformVolume":0.7}],
+
+         {"deformGroup":"backlight_break", "deformMaterialBase":"semi_glass", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_backlight", ["semi_daycab_roof","semi_daycab_backwall"],[]{"deformSound":"event:>Destruction>Vehicle>Glass>glassbreaksound7", "deformVolume":0.7}],
+
+         {"deformGroup":"windshield_R_break", "deformMaterialBase":"semi_glass_int", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_windshield_R_int", ["semi_daycab_roof","semi_daycab_cowl"]],
+
+         {"deformGroup":"windshield_L_break", "deformMaterialBase":"semi_glass_int", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_windshield_L_int", ["semi_daycab_roof","semi_daycab_cowl"]],
+
+         {"deformGroup":"backlight_break", "deformMaterialBase":"semi_glass_int", "deformMaterialDamaged":"semi_glass_dmg"},
+         ["semi_backlight_int", ["semi_daycab_roof","semi_daycab_backwall"]],
+
+         {"deformGroup":""},
+         ["semi_wipers", ["semi_daycab_roof"]],
+    ],
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         {"frictionCoef":0.5},
+         {"nodeMaterial":"|NM_GLASS"},
+         {"nodeWeight":4.49},
+         {"group":""},
+    ],
+
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1.0, "beamShortBound":1.0},
+          {"beamSpring":1920800,"beamDamp":400},
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          {"beamDeform":15000,"beamStrength":10000},
+          {"deformGroup":"windshield_R_break", "deformationTriggerRatio":0.001},
+          {"breakGroup":"windshield_R"},
+          ["dc2","dc18rr"],
+          ["dc18","dc2rr"],
+          ["dc18r","dc2rr"],
+          {"deformGroup":"windshield_L_break", "deformationTriggerRatio":0.001},
+          {"breakGroup":"windshield_L"},
+          ["dc2","dc18ll"],
+          ["dc18","dc2ll"],
+          ["dc18l","dc2ll"],
+          {"disableMeshBreaking":true,"disableTriangleBreaking":true},
+          //backlight
+          {"beamSpring":1920800,"beamDamp":400},
+          {"deformGroup":"backlight_break", "deformationTriggerRatio":0.001},
+          {"beamDeform":15000,"beamStrength":10000},
+          {"breakGroup":"backlight"},
+          ["dc13","dc15"],
+          ["dc15rr","dc13"],
+          ["dc15ll","dc13"],
+          ["dc13ll","dc15"],
+          ["dc13rr","dc15"],
+          {"breakGroup":""},
+          {"disableMeshBreaking":false,"disableTriangleBreaking":false},
+          {"deformGroup":""},
+    ],
+},
+}

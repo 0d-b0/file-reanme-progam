@@ -1,0 +1,67 @@
+{
+"semi_licenseplate_F_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Front EU License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_F",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["semi_bumper_F"],[],{"pos":{"x":0.0, "y":-4.02, "z":0.57}, "rot":{"x":0, "y":0, "z":0}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["semi_frame"],[],{"pos":{"x":0.0, "y":3.640, "z":0.68}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_alt_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R_alt",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["semi_cargobox_floorframe"],[],{"pos":{"x":-0.83, "y":5.178, "z":1.03}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_alt2_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R_alt2",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["semi_flatbed"],[],{"pos":{"x":0.0, "y":5.178, "z":1.03}, "rot":{"x":0, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+"semi_licenseplate_R_alt3_EU": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear EU License Plate",
+        "value":0,
+    },
+    "slotType" : "semi_licenseplate_R_alt3",
+    "licenseplateFormat": "52-11",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["licenseplate-52-11", ["tiltframe"],[],{"pos":{"x":0.39, "y":6.23, "z":0.76}, "rot":{"x":12, "y":0, "z":180}, "scale":{"x":1, "y":1, "z":1}}],
+    ],
+},
+}

@@ -1,0 +1,4974 @@
+{
+"semi_exhaust": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Y Pipe",
+        "value":800,
+    },
+    "slotType" : "semi_exhaust",
+    "slots": [
+        ["type", "default", "description"],
+        //exhaust stacks
+        ["semi_exhauststacks","semi_exhauststacks", "Exhaust Stacks"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_downpipe", ["semi_engine"]],
+         ["semi_ypipe", ["semi_engine","semi_ypipe"]],
+    ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":1,
+        "$+highShelfGain":-1,
+        "$+eqFundamentalGain":0,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"nodeWeight":2.5},
+         {"group":"semi_ypipe"},
+         {"selfCollision":true},
+         {"collision":true},
+         ["ex1r", -0.47, -0.99, 0.43],
+         ["ex2r",  -0.3, -0.99, 0.39],
+         ["ex2l",   0.3, -0.99, 0.39],
+         ["ex1l",  0.47, -0.99, 0.43],
+         ["ex3r",   -0.3, -1.7,  0.36],
+         {"selfCollision":false},
+         {"collision":false},
+         {"nodeWeight":1},
+         ["ex4",   -0.1, -1.4,  0.8],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2001000,"beamDamp":150},
+          {"beamDeform":45000,"beamStrength":"FLT_MAX"},
+          //ypipe main shape
+          ["en2r", "ex3r", {"isExhaust":"mainEngine"}],
+          ["en2l", "ex3r"],
+          ["ex3r", "ex2r", {"isExhaust":"mainEngine"}],
+          ["ex2r", "ex2l", {"isExhaust":"mainEngine"}],
+          ["ex2r", "ex1r", {"isExhaust":"mainEngine"}],
+          ["ex2l", "ex1l", {"isExhaust":"mainEngine"}],
+          //rigidifier
+          {"beamDeform":10000,"beamStrength":"FLT_MAX"},
+          ["ex1l", "ex4"],
+          ["ex2l", "ex4"],
+          ["ex2r", "ex4"],
+          ["ex1r", "ex4"],
+          ["ex3r", "ex4"],
+          ["en2r", "ex4"],
+          ["en2l", "ex4"],
+
+          //rigids
+          ["ex1r", "ex3r"],
+          ["ex2l", "ex3r"],
+          ["ex1l", "ex3r"],
+          ["en2r", "ex2r"],
+          ["en2l", "ex2r"],
+          ["ex2l", "en2r"],
+          ["ex1l", "ex2r"],
+          ["ex1r", "ex2l"],
+
+          ["en4r", "ex3r"],
+          ["en4l", "ex3r"],
+          ["en4r", "ex4"],
+          ["en4l", "ex4"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+          ["id1:","id2:","id3:"],
+          {"triangleType":"NONCOLLIDABLE"},
+          //["ex1l", "ex1r", "tra1"],
+          ["en2r", "ex3r", "en2l"],
+          ["ex3r", "ex2r", "ex2l"],
+          ["ex2l", "ex1l", "ex2r"],
+          ["ex2r", "ex1l", "ex1r"],
+          {"triangleType":"NORMALTYPE"},
+    ],
+},
+"semi_exhaust_L": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Left Pipe",
+        "value":350,
+    },
+    "slotType" : "semi_exhaust",
+    "slots": [
+        ["type", "default", "description"],
+        //exhaust stack
+        ["semi_exhauststack_L","semi_exhauststack_L", "Exhaust Stack"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_downpipe", ["semi_engine"]],
+         ["semi_pipe_l", ["semi_engine","semi_pipe_l"]],
+    ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":1,
+        "$+highShelfGain":-1,
+        "$+eqFundamentalGain":0,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"nodeWeight":2},
+         {"group":"semi_pipe_l"},
+         {"selfCollision":true},
+         {"collision":true},
+         ["ex1r", -0.47, -0.99, 0.43],
+         ["ex1l", 0.47, -0.99, 0.43],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2501000,"beamDamp":100},
+          {"beamDeform":45000,"beamStrength":"FLT_MAX"},
+          //pipe_l
+          ["ex1r","ex1l", {"isExhaust":"mainEngine"}],
+          ["ex1r","en2r", {"isExhaust":"mainEngine"}],
+          ["ex1l","en2r"],
+          //ypipe to engine
+          ["ex1r","tra1"],
+          ["ex1l","tra1"],
+          ["ex1r","en4l"],
+          ["ex1l","en4r"],
+          ["ex1r","en4r"],
+          ["ex1l","en4l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+          ["id1:","id2:","id3:"],
+          {"triangleType":"NONCOLLIDABLE"},
+          ["ex1l", "ex1r", "tra1"],
+          {"triangleType":"NORMALTYPE"},
+    ],
+},
+"semi_exhaust_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Right Pipe",
+        "value":350,
+    },
+    "slotType" : "semi_exhaust",
+    "slots": [
+        ["type", "default", "description"],
+        //exhaust stack
+        ["semi_exhauststack_R","semi_exhauststack_R", "Exhaust Stack"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_downpipe", ["semi_engine"]],
+         ["semi_pipe_r", ["semi_engine","semi_pipe_r"]],
+    ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":1,
+        "$+highShelfGain":-1,
+        "$+eqFundamentalGain":0,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"nodeWeight":2},
+         {"group":"semi_pipe_r"},
+         {"selfCollision":true},
+         {"collision":true},
+         ["ex1r", -0.47, -0.99, 0.43],
+         ["ex1l", 0.47, -0.99, 0.43],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":2501000,"beamDamp":100},
+          {"beamDeform":45000,"beamStrength":"FLT_MAX"},
+          //pipe_l
+          ["ex1r","ex1l"],
+          ["ex1r","en2r", {"isExhaust":"mainEngine"}],
+          ["ex1l","en2r"],
+          //ypipe to engine
+          ["ex1r","tra1"],
+          ["ex1l","tra1"],
+          ["ex1r","en4l"],
+          ["ex1l","en4r"],
+          ["ex1r","en4r"],
+          ["ex1l","en4l"],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+          ["id1:","id2:","id3:"],
+          {"triangleType":"NONCOLLIDABLE"},
+          ["ex1l", "ex1r", "tra1"],
+          {"triangleType":"NORMALTYPE"},
+    ],
+},
+"semi_exhauststacks": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stock Exhaust Stacks",
+        "value":600,
+    },
+    "slotType" : "semi_exhauststacks",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_R", ["semi_exhauststack_R"]],
+         ["semi_exhauststack_L", ["semi_exhauststack_L"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":8,
+        "$+highShelfGain":-8,
+        "$+eqFundamentalGain":2,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--RIGHT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_R"},
+         //top tip triangle
+         ["es1r",-1.20, -0.815, 2.855, {"collision":false,"selfCollision":false, "exhaustAudioMufflingCoef": 0.1, "exhaustAudioGainChange":-4}],
+         ["es2r",-1.16, -0.79, 2.90],
+         ["es3r",-1.22, -0.86, 2.90],
+
+         //["es4r",-1.09, -0.92, 2.78],
+         ["es5r",-1.05, -0.97, 2.88],
+         //["es6r",-1.10, -0.98, 2.83],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1r",-0.98, -0.89, 2.48],
+         ["esm1rr",-1.17, -0.89, 2.48],
+         ["esm2r",-0.98, -1.08, 2.51],
+         ["esm2rr",-1.17, -1.08, 2.51],
+
+         ["esm3r",-0.98, -0.89, 1.78],
+         ["esm3rr",-1.17, -0.89, 1.78],
+         ["esm4r",-0.98, -1.08, 1.78],
+         ["esm4rr",-1.17, -1.08, 1.78],
+
+         ["esm5r",-0.98, -0.89, 1.0],
+         ["esm5rr",-1.17, -0.89, 1.025],
+         ["esm6r",-0.98, -1.08, 1.0],
+         ["esm6rr",-1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7r",-0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8r",-1.0, -0.93, 0.81],
+         ["es9r",-1.0, -1.01, 0.81],
+
+         ["es10r",-0.50, -0.97, 0.49],
+         ["es11r",-0.52, -0.93, 0.40],
+         ["es12r",-0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_R_attach"},
+         ["esa1r",-0.80,-0.84, 2.39],
+         ["esa2r",-0.80,-0.84, 1.17],
+         {"group":""},
+
+         {"selfCollision":true},
+         {"collision":true},
+         //--LEFT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_L"},
+         //top tip triangle
+         ["es1l", 1.20, -0.815, 2.855, {"collision":false,"selfCollision":false, "exhaustAudioMufflingCoef": 0.1, "exhaustAudioGainChange":-4}],
+         ["es2l", 1.16, -0.79, 2.9],
+         ["es3l", 1.22, -0.86, 2.9],
+
+         //["es4l", 1.09, -0.92, 2.78],
+         ["es5l", 1.05, -0.97, 2.88],
+         //["es6l", 1.10, -0.98, 2.83],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1l", 0.98, -0.89, 2.48],
+         ["esm1ll", 1.17, -0.89, 2.48],
+         ["esm2l", 0.98, -1.08, 2.51],
+         ["esm2ll", 1.17, -1.08, 2.51],
+
+         ["esm3l", 0.98, -0.89, 1.78],
+         ["esm3ll", 1.17, -0.89, 1.78],
+         ["esm4l", 0.98, -1.08, 1.78],
+         ["esm4ll", 1.17, -1.08, 1.78],
+
+         ["esm5l", 0.98, -0.89, 1.0],
+         ["esm5ll", 1.17, -0.89, 1.025],
+         ["esm6l", 0.98, -1.08, 1.0],
+         ["esm6ll", 1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7l", 0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8l", 1.0, -0.93, 0.81],
+         ["es9l", 1.0, -1.01, 0.81],
+
+         ["es10l", 0.50, -0.97, 0.49],
+         ["es11l", 0.52, -0.93, 0.40],
+         ["es12l", 0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_L_attach"},
+         ["esa1l", 0.80,-0.84, 2.39],
+         ["esa2l", 0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RIGHT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          //triangle perimeter circumference whatevers
+          ["es1r","es2r"],
+          ["es2r","es3r"],
+          ["es3r","es1r"],
+
+          //["es4r","es5r"],
+          //["es5r","es6r"],
+          //["es6r","es4r"],
+
+          //["es7r","es8r"],
+          ["es8r","es9r"],
+          //["es9r","es7r"],
+
+          ["es10r","es11r"],
+          ["es11r","es12r"],
+          ["es12r","es10r"],
+
+          //muffler perimeter square
+          ["esm1r","esm2r"],
+          ["esm2r","esm2rr"],
+          ["esm2rr","esm1rr"],
+          ["esm1rr","esm1r"],
+
+          ["esm3r","esm4r"],
+          ["esm4r","esm4rr"],
+          ["esm4rr","esm3rr"],
+          ["esm3rr","esm3r"],
+
+          ["esm5r","esm6r"],
+          ["esm6r","esm6rr"],
+          ["esm6rr","esm5rr"],
+          ["esm5rr","esm5r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["es1r","es5r", {"isExhaust":"mainEngine"}],
+          //["es1r","es6r"],
+          //["es2r","es4r"],
+          //["es3r","es4r"],
+
+          //["es7r","es11r"],
+          //["es7r","es12r"],
+          ["es8r","es10r"],
+          ["es9r","es10r"],
+
+          //muffler main shape lengthwise
+          ["esm1r","esm3r", {"isExhaust":"mainEngine"}],
+          ["esm1rr","esm3rr"],
+          ["esm2r","esm4r"],
+          ["esm2rr","esm4rr"],
+          ["esm3r","esm5r", {"isExhaust":"mainEngine"}],
+          ["esm3rr","esm5rr"],
+          ["esm4r","esm6r"],
+          ["esm4rr","esm6rr"],
+
+          //muffler to pipe
+          //upper
+          //["es4r","esm1rr"],
+          //["es6r","esm2rr"],
+          //["es4r","esm1r"],
+          ["es5r","esm1r", {"isExhaust":"mainEngine"}],
+          ["es5r","esm2r"],
+
+          //lower
+          //["esm5rr","es7r"],
+          //["esm6rr","es7r"],
+
+          ["esm5r","es8r"],
+          ["esm6r","es9r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1r","es4r"],
+          //["es2r","es6r"],
+          ["es3r","es5r"],
+
+          //["es4r","esm2rr"],
+          //["es6r","esm1rr"],
+          //["es6r","esm1r"],
+          ["es5r","esm2rr"],
+          //
+          ["esm5rr","es8r"],
+          ["esm6rr","es9r"],
+          ["esm5rr","es9r"],
+          ["esm6rr","es8r"],
+
+          //["esm5r","es7r"],
+          //["esm6r","es7r"],
+
+          //["es7r","es10r"],
+          ["es8r","es11r"],
+          ["es8r","es12r"],
+          ["es9r","es11r"],
+          ["es9r","es12r"],
+
+          //muffler
+          ["esm1r","esm4r"],
+          ["esm2r","esm3r"],
+          ["esm1rr","esm4rr"],
+          ["esm2rr","esm3rr"],
+
+          ["esm3r","esm6r"],
+          ["esm4r","esm5r"],
+          ["esm3rr","esm6rr"],
+          ["esm4rr","esm5rr"],
+
+          ["esm1rr","esm3r"],
+          ["esm1r","esm3rr"],
+          ["esm2rr","esm4r"],
+          ["esm2r","esm4rr"],
+
+          ["esm3rr","esm5r"],
+          ["esm3r","esm5rr"],
+          ["esm4rr","esm6r"],
+          ["esm4r","esm6rr"],
+
+          //top of muffler
+          ["esm1rr","esm2r"],
+          ["esm2rr","esm1r"],
+          //middle
+          ["esm3rr","esm4r"],
+          ["esm4rr","esm3r"],
+          //bottom of muffler
+          ["esm5rr","esm6r"],
+          ["esm6rr","esm5r"],
+
+          //rigids
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          ["es1r","esm1r"],
+          ["es1r","esm2r"],
+          ["es1r","esm1rr"],
+          ["es1r","esm2rr"],
+
+          ["es2r","esm1r"],
+          ["es2r","esm2r"],
+          ["es2r","esm1rr"],
+          ["es2r","esm2rr"],
+
+          ["es3r","esm1r"],
+          ["es3r","esm2r"],
+          ["es3r","esm1rr"],
+          ["es3r","esm2rr"],
+
+          ["es10r","esm5r", {"isExhaust":"mainEngine"}],
+          ["es10r","esm6r"],
+          ["es10r","esm5rr"],
+          ["es10r","esm6rr"],
+
+          ["es11r","esm5r"],
+          ["es11r","esm6r"],
+          ["es11r","esm5rr"],
+          ["es11r","esm6rr"],
+
+          ["es12r","esm5r"],
+          ["es12r","esm6r"],
+          ["es12r","esm5rr"],
+          ["es12r","esm6rr"],
+
+          ["esm3r", "es10r"],
+          ["esm4r", "es10r"],
+
+          ["es3r", "esm3rr"],
+          ["es2r", "esm3rr"],
+
+          //muffler
+          ["esm1r","esm5r"],
+          ["esm2r","esm6r"],
+          ["esm1rr","esm5rr"],
+          ["esm2rr","esm6rr"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1r","esa1r"],
+          ["esm1rr","esa1r"],
+          ["esm2r","esa1r"],
+          ["esm2rr","esa1r"],
+
+          ["esm3r","esa1r"],
+          ["esm3rr","esa1r"],
+          ["esm4r","esa1r"],
+          ["esm4rr","esa1r"],
+
+          ["es5r","esa1r"],
+
+          //lower
+          ["esm5r","esa2r"],
+          ["esm5rr","esa2r"],
+          ["esm6r","esa2r"],
+          ["esm6rr","esa2r"],
+
+          ["esm3r","esa2r"],
+          ["esm3rr","esa2r"],
+          ["esm4r","esa2r"],
+          ["esm4rr","esa2r"],
+
+          //["es7r","esa2r"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_R"},
+          {"optional":true},
+          ["esa1r","dc15rrr"],
+          ["esa1r","dc15rr"],
+          ["esa1r","dc13rr"],
+
+          ["esm2r","dc15rrr"],
+          ["esm2r","dc15rr"],
+          ["esm2r","dc13rr"],
+          {"breakGroup":"exhauststack_b_R"},
+          ["esa2r","dc9rr"],
+          ["esa2r","dc10rr"],
+          ["esa2r","dc11rr"],
+          ["esa2r","dc13rr"],
+
+          ["esm6r","dc9rr"],
+          ["esm6r","dc10rr"],
+          ["esm6r","dc11rr"],
+          ["esm6r","dc13rr"],
+          ["es10r","dc11rr"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_R"},
+          ["es10r","ex1r", {"isExhaust":"mainEngine"}],
+          ["es11r","ex1r"],
+          ["es12r","ex1r"],
+
+          ["es8r","ex1l"],
+          ["es9r","ex1l"],
+
+          ["es9r","en2r"],
+          //["es7r","en2r"],
+          {"breakGroup":""},
+
+          //--LEFT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          //triangle perimeter circumference whatevers
+          ["es1l","es2l"],
+          ["es2l","es3l"],
+          ["es3l","es1l"],
+
+          //["es4l","es5l"],
+          //["es5l","es6l"],
+          //["es6l","es4l"],
+
+          //["es7l","es8l"],
+          ["es8l","es9l"],
+          //["es9l","es7l"],
+
+          ["es10l","es11l"],
+          ["es11l","es12l"],
+          ["es12l","es10l"],
+
+          //muffler perimeter square
+          ["esm1l","esm2l"],
+          ["esm2l","esm2ll"],
+          ["esm2ll","esm1ll"],
+          ["esm1ll","esm1l"],
+
+          ["esm3l","esm4l"],
+          ["esm4l","esm4ll"],
+          ["esm4ll","esm3ll"],
+          ["esm3ll","esm3l"],
+
+          ["esm5l","esm6l"],
+          ["esm6l","esm6ll"],
+          ["esm6ll","esm5ll"],
+          ["esm5ll","esm5l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["es1l","es5l", {"isExhaust":"mainEngine"}],
+          //["es1l","es6l"],
+          //["es2l","es4l"],
+          //["es3l","es4l"],
+
+          //["es7l","es11l"],
+          //["es7l","es12l"],
+          ["es8l","es10l"],
+          ["es9l","es10l"],
+
+          //muffler main shape lengthwise
+          ["esm1l","esm3l", {"isExhaust":"mainEngine"}],
+          ["esm1ll","esm3ll"],
+          ["esm2l","esm4l"],
+          ["esm2ll","esm4ll"],
+          ["esm3l","esm5l", {"isExhaust":"mainEngine"}],
+          ["esm3ll","esm5ll"],
+          ["esm4l","esm6l"],
+          ["esm4ll","esm6ll"],
+
+          //muffler to pipe
+          //upper
+          //["es4l","esm1ll"],
+          //["es6l","esm2ll"],
+          //["es4l","esm1l"],
+          ["es5l","esm1l", {"isExhaust":"mainEngine"}],
+          ["es5l","esm2l"],
+
+          //lower
+          //["esm5ll","es7l"],
+          //["esm6ll","es7l"],
+
+          ["esm5l","es8l"],
+          ["esm6l","es9l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1l","es4l"],
+          //["es2l","es6l"],
+          ["es3l","es5l"],
+
+          //["es4l","esm2ll"],
+          //["es6l","esm1ll"],
+          //["es6l","esm1l"],
+          ["es5l","esm2ll"],
+          //
+          ["esm5ll","es8l"],
+          ["esm6ll","es9l"],
+          ["esm5ll","es9l"],
+          ["esm6ll","es8l"],
+
+          //["esm5l","es7l"],
+          //["esm6l","es7l"],
+
+          //["es7l","es10l"],
+          ["es8l","es11l"],
+          ["es8l","es12l"],
+          ["es9l","es11l"],
+          ["es9l","es12l"],
+
+          //muffler
+          ["esm1l","esm4l"],
+          ["esm2l","esm3l"],
+          ["esm1ll","esm4ll"],
+          ["esm2ll","esm3ll"],
+
+          ["esm3l","esm6l"],
+          ["esm4l","esm5l"],
+          ["esm3ll","esm6ll"],
+          ["esm4ll","esm5ll"],
+
+          ["esm1ll","esm3l"],
+          ["esm1l","esm3ll"],
+          ["esm2ll","esm4l"],
+          ["esm2l","esm4ll"],
+
+          ["esm3ll","esm5l"],
+          ["esm3l","esm5ll"],
+          ["esm4ll","esm6l"],
+          ["esm4l","esm6ll"],
+
+          //top of muffler
+          ["esm1ll","esm2l"],
+          ["esm2ll","esm1l"],
+          //middle
+          ["esm3ll","esm4l"],
+          ["esm4ll","esm3l"],
+          //bottom of muffler
+          ["esm5ll","esm6l"],
+          ["esm6ll","esm5l"],
+          //rigids
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          ["es1l","esm1l"],
+          ["es1l","esm2l"],
+          ["es1l","esm1ll"],
+          ["es1l","esm2ll"],
+
+          ["es2l","esm1l"],
+          ["es2l","esm2l"],
+          ["es2l","esm1ll"],
+          ["es2l","esm2ll"],
+
+          ["es3l","esm1l"],
+          ["es3l","esm2l"],
+          ["es3l","esm1ll"],
+          ["es3l","esm2ll"],
+
+          ["es10l","esm5l", {"isExhaust":"mainEngine"}],
+          ["es10l","esm6l"],
+          ["es10l","esm5ll"],
+          ["es10l","esm6ll"],
+
+          ["es11l","esm5l"],
+          ["es11l","esm6l"],
+          ["es11l","esm5ll"],
+          ["es11l","esm6ll"],
+
+          ["es12l","esm5l"],
+          ["es12l","esm6l"],
+          ["es12l","esm5ll"],
+          ["es12l","esm6ll"],
+
+          ["esm3l", "es10l"],
+          ["esm4l", "es10l"],
+
+          ["es3l", "esm3ll"],
+          ["es2l", "esm3ll"],
+
+          //muffler
+          ["esm1l","esm5l"],
+          ["esm2l","esm6l"],
+          ["esm1ll","esm5ll"],
+          ["esm2ll","esm6ll"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1l","esa1l"],
+          ["esm1ll","esa1l"],
+          ["esm2l","esa1l"],
+          ["esm2ll","esa1l"],
+
+          ["esm3l","esa1l"],
+          ["esm3ll","esa1l"],
+          ["esm4l","esa1l"],
+          ["esm4ll","esa1l"],
+
+          ["es5l","esa1l"],
+
+          //lower
+          ["esm5l","esa2l"],
+          ["esm5ll","esa2l"],
+          ["esm6l","esa2l"],
+          ["esm6ll","esa2l"],
+
+          ["esm3l","esa2l"],
+          ["esm3ll","esa2l"],
+          ["esm4l","esa2l"],
+          ["esm4ll","esa2l"],
+
+          //["es7l","esa2l"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_L"},
+          {"optional":true},
+          ["esa1l","dc15lll"],
+          ["esa1l","dc15ll"],
+          ["esa1l","dc13ll"],
+
+          ["esm2l","dc15lll"],
+          ["esm2l","dc15ll"],
+          ["esm2l","dc13ll"],
+          {"breakGroup":"exhauststack_b_L"},
+          ["esa2l","dc9ll"],
+          ["esa2l","dc10ll"],
+          ["esa2l","dc11ll"],
+          ["esa2l","dc13ll"],
+
+          ["esm6l","dc9ll"],
+          ["esm6l","dc10ll"],
+          ["esm6l","dc11ll"],
+          ["esm6l","dc13ll"],
+
+          ["es10l","dc11ll"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_L"},
+          ["es10l","ex1l", {"isExhaust":"mainEngine"}],
+          ["es11l","ex1l"],
+          ["es12l","ex1l"],
+
+          ["es8l","ex1r"],
+          ["es9l","ex1r"],
+
+          ["es9l","en2r"],
+          //["es7l","en2r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_exhauststack_R"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["es2r", "esm1rr", "es3r"],
+            ["esm1r", "esm1rr", "es5r"],
+            ["es2r", "es5r", "esm1rr"],
+            ["esm2r", "esm1r", "es5r"],
+            ["esm2rr", "esm2r", "es5r"],
+            ["es3r", "esm2rr", "es5r"],
+            ["esm1rr", "esm2rr", "es3r"],
+            ["es3r", "es5r", "es2r"],
+
+            //muffler
+            ["esm1rr","esm3rr","esm4rr"],
+            ["esm1rr","esm4rr","esm2rr"],
+            ["esm3rr","esm5rr","esm6rr"],
+            ["esm3rr","esm6rr","esm4rr"],
+
+            ["esm1r","esm4r","esm3r"],
+            ["esm1r","esm2r","esm4r"],
+            ["esm3r","esm6r","esm5r"],
+            ["esm3r","esm4r","esm6r"],
+
+            ["esm2rr","esm4rr","esm4r"],
+            ["esm2rr","esm4r","esm2r"],
+            ["esm4rr","esm6rr","esm6r"],
+            ["esm4rr","esm6r","esm4r"],
+
+            ["esm1rr","esm3r","esm3rr"],
+            ["esm1rr","esm1r","esm3r"],
+            ["esm3rr","esm5r","esm5rr"],
+            ["esm3rr","esm3r","esm5r"],
+
+            //lower pipe
+            ["es9r", "esm6rr", "es8r"],
+            ["esm5rr", "es8r", "esm6rr"],
+            ["es12r", "es9r", "es11r"],
+            ["es8r", "es11r", "es9r"],
+            ["es8r", "esm5rr", "esm5r"],
+            ["es11r", "es8r", "es10r"],
+            ["esm5r", "es10r", "es8r"],
+            ["es10r", "esm5r", "esm6r"],
+            ["es9r", "es10r", "esm6r"],
+            ["esm6rr", "es9r", "esm6r"],
+            ["es12r", "es10r", "es9r"],
+
+            //inner tip
+            ["es10r","es12r","es11r"],
+
+            {"group":""},
+
+            //LEFT EXHAUST PIPE
+            {"group":"semi_exhauststack_L"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["esm1ll", "es2l", "es3l"],
+            ["esm1ll", "esm1l", "es5l"],
+            ["es5l", "es2l", "esm1ll"],
+            ["esm1l", "esm2l", "es5l"],
+            ["esm2l", "esm2ll", "es5l"],
+            ["esm2ll", "es3l", "es5l"],
+            ["esm2ll", "esm1ll", "es3l"],
+            ["es5l", "es3l", "es2l"],
+
+            //muffler
+            ["esm1ll","esm4ll","esm3ll"],
+            ["esm1ll","esm2ll","esm4ll"],
+            ["esm3ll","esm6ll","esm5ll"],
+            ["esm3ll","esm4ll","esm6ll"],
+
+            ["esm1l","esm3l","esm4l"],
+            ["esm1l","esm4l","esm2l"],
+            ["esm3l","esm5l","esm6l"],
+            ["esm3l","esm6l","esm4l"],
+
+            ["esm2ll","esm4l","esm4ll"],
+            ["esm2ll","esm2l","esm4l"],
+            ["esm4ll","esm6l","esm6ll"],
+            ["esm4ll","esm4l","esm6l"],
+
+            ["esm1ll","esm3ll","esm3l"],
+            ["esm1ll","esm3l","esm1l"],
+            ["esm3ll","esm5ll","esm5l"],
+            ["esm3ll","esm5l","esm3l"],
+
+            //lower pipe
+            ["esm6ll", "es9l", "es8l"],
+            ["es8l", "esm5ll", "esm6ll"],
+            ["es9l", "es12l", "es11l"],
+            ["es11l", "es8l", "es9l"],
+            ["esm5ll", "es8l", "esm5l"],
+            ["es8l", "es11l", "es10l"],
+            ["es10l", "esm5l", "es8l"],
+            ["esm5l", "es10l", "esm6l"],
+            ["es10l", "es9l", "esm6l"],
+            ["es9l", "esm6ll", "esm6l"],
+            ["es10l", "es12l", "es9l"],
+
+            //inner tip
+            ["es10l","es11l","es12l"],
+            {"group":""},
+    ],
+},
+"semi_exhauststacks_a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Straight-Through Exhaust Stacks",
+        "value":1000,
+    },
+    "slotType" : "semi_exhauststacks",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_heatshields","semi_heatshields_stock", "Heat Shields"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_a_R", ["semi_exhauststack_R"]],
+         ["semi_exhauststack_a_L", ["semi_exhauststack_L"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":14,
+        "$+highShelfGain":0,
+        "$+eqFundamentalGain":6,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--RIGHT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_R"},
+         //top tip
+         ["es5r",-1.05, -0.99, 2.48, {"collision":false,"selfCollision":false}],
+         ["es6r",-1.05, -0.99, 3.13, {"collision":false,"selfCollision":false,"afterFireAudioCoef":0.2, "afterFireVisualCoef":0.2, "afterFireVolumeCoef":0.2, "afterFireMufflingCoef":0.4, "exhaustAudioMufflingCoef":0.4, "exhaustAudioGainChange":-2}],
+
+         ["es1r", -0.98, -0.89, 3.08],
+         ["es2r", -1.14, -0.89, 3.08],
+         ["es3r", -0.98, -1.08, 3.25],
+         ["es4r", -1.14, -1.08, 3.25],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1r", -0.98, -0.89, 2.48],
+         ["esm1rr",-1.17, -0.89, 2.48],
+         ["esm2r", -0.98, -1.08, 2.48],
+         ["esm2rr",-1.17, -1.08, 2.48],
+
+         ["esm3r", -0.98, -0.89, 1.78],
+         ["esm3rr",-1.17, -0.89, 1.78],
+         ["esm4r", -0.98, -1.08, 1.78],
+         ["esm4rr",-1.17, -1.08, 1.78],
+
+         ["esm5r", -0.98, -0.89, 1.0],
+         ["esm5rr",-1.17, -0.89, 1.025],
+         ["esm6r", -0.98, -1.08, 1.0],
+         ["esm6rr",-1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7r",-0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8r",-1.0, -0.93, 0.81],
+         ["es9r",-1.0, -1.01, 0.81],
+
+         ["es10r",-0.50, -0.97, 0.49],
+         ["es11r",-0.52, -0.93, 0.40],
+         ["es12r",-0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_R_attach"},
+         ["esa1r",-0.80,-0.84, 2.39],
+         ["esa2r",-0.80,-0.84, 1.17],
+         {"group":""},
+
+         {"selfCollision":true},
+         {"collision":true},
+         //--LEFT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_L"},
+         //top tip
+         ["es5l", 1.05, -0.99, 2.48, {"collision":false,"selfCollision":false}],
+         ["es6l", 1.05, -0.99, 3.13, {"collision":false,"selfCollision":false,"afterFireAudioCoef":0.2, "afterFireVisualCoef":0.2, "afterFireVolumeCoef":0.2, "afterFireMufflingCoef":0.4, "exhaustAudioMufflingCoef":0.4, "exhaustAudioGainChange":-2}],
+
+         ["es1l", 0.98, -0.89, 3.08],
+         ["es2l", 1.14, -0.89, 3.08],
+         ["es3l", 0.98, -1.08, 3.25],
+         ["es4l", 1.14, -1.08, 3.25],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1l",  0.98, -0.89, 2.48],
+         ["esm1ll", 1.17, -0.89, 2.48],
+         ["esm2l",  0.98, -1.08, 2.48],
+         ["esm2ll", 1.17, -1.08, 2.48],
+
+         ["esm3l",  0.98, -0.89, 1.78],
+         ["esm3ll", 1.17, -0.89, 1.78],
+         ["esm4l",  0.98, -1.08, 1.78],
+         ["esm4ll", 1.17, -1.08, 1.78],
+
+         ["esm5l",  0.98, -0.89, 1.0],
+         ["esm5ll", 1.17, -0.89, 1.025],
+         ["esm6l",  0.98, -1.08, 1.0],
+         ["esm6ll", 1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7l", 0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8l", 1.0, -0.93, 0.81],
+         ["es9l", 1.0, -1.01, 0.81],
+
+         ["es10l", 0.50, -0.97, 0.49],
+         ["es11l", 0.52, -0.93, 0.40],
+         ["es12l", 0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_L_attach"},
+         ["esa1l", 0.80,-0.84, 2.39],
+         ["esa2l", 0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RIGHT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["es8r","es9r"],
+
+          ["es10r","es11r"],
+          ["es11r","es12r"],
+          ["es12r","es10r"],
+
+          ["esm1r", "es1r"],
+          ["esm1rr", "es2r"],
+          ["esm2r", "es3r"],
+          ["esm2rr", "es4r"],
+          ["es1r", "es2r"],
+          ["es1r", "es3r"],
+          ["es3r", "es4r"],
+          ["es4r", "es2r"],
+
+          ["es1r", "es4r"],
+          ["es2r", "es3r"],
+
+          //muffler perimeter square
+          ["esm1r","esm2r"],
+          ["esm2r","esm2rr"],
+          ["esm2rr","esm1rr"],
+          ["esm1rr","esm1r"],
+
+          ["esm3r","esm4r"],
+          ["esm4r","esm4rr"],
+          ["esm4rr","esm3rr"],
+          ["esm3rr","esm3r"],
+
+          ["esm5r","esm6r"],
+          ["esm6r","esm6rr"],
+          ["esm6rr","esm5rr"],
+          ["esm5rr","esm5r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          //["es1r","es5r", {"isExhaust":"mainEngine"}],
+          //["es1r","es6r"],
+          //["es2r","es4r"],
+          //["es3r","es4r"],
+
+          //["es7r","es11r"],
+          //["es7r","es12r"],
+          ["es8r","es10r"],
+          ["es9r","es10r"],
+
+          //muffler main shape lengthwise
+          ["esm1r","esm3r", {"isExhaust":"mainEngine"}],
+          ["esm1rr","esm3rr"],
+          ["esm2r","esm4r"],
+          ["esm2rr","esm4rr"],
+          ["esm3r","esm5r", {"isExhaust":"mainEngine"}],
+          ["esm3rr","esm5rr"],
+          ["esm4r","esm6r"],
+          ["esm4rr","esm6rr"],
+
+          //muffler to pipe
+          //upper
+          //["es4r","esm1rr"],
+          //["es6r","esm2rr"],
+          //["es4r","esm1r"],
+          //["es5r","esm1r", {"isExhaust":"mainEngine"}],
+          //["es5r","esm2r"],
+
+          //lower
+          //["esm5rr","es7r"],
+          //["esm6rr","es7r"],
+
+          ["esm5r","es8r"],
+          ["esm6r","es9r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1r","es4r"],
+          //["es2r","es6r"],
+          //["es3r","es5r"],
+
+          //["es4r","esm2rr"],
+          //["es6r","esm1rr"],
+          //["es6r","esm1r"],
+          //["es5r","esm2rr"],
+
+          ["es1r", "esm1rr"],
+          ["es2r", "esm1r"],
+          ["es3r", "esm2rr"],
+          ["es4r", "esm2r"],
+          ["es2r", "esm2rr"],
+          ["es4r", "esm1rr"],
+          ["es1r", "esm2r"],
+          ["es3r", "esm1r"],
+
+          //
+          ["esm5rr","es8r"],
+          ["esm6rr","es9r"],
+          ["esm5rr","es9r"],
+          ["esm6rr","es8r"],
+
+          //["esm5r","es7r"],
+          //["esm6r","es7r"],
+
+          //["es7r","es10r"],
+          ["es8r","es11r"],
+          ["es8r","es12r"],
+          ["es9r","es11r"],
+          ["es9r","es12r"],
+
+          //muffler
+          ["esm1r","esm4r"],
+          ["esm2r","esm3r"],
+          ["esm1rr","esm4rr"],
+          ["esm2rr","esm3rr"],
+
+          ["esm3r","esm6r"],
+          ["esm4r","esm5r"],
+          ["esm3rr","esm6rr"],
+          ["esm4rr","esm5rr"],
+
+          ["esm1rr","esm3r"],
+          ["esm1r","esm3rr"],
+          ["esm2rr","esm4r"],
+          ["esm2r","esm4rr"],
+
+          ["esm3rr","esm5r"],
+          ["esm3r","esm5rr"],
+          ["esm4rr","esm6r"],
+          ["esm4r","esm6rr"],
+
+          //top of muffler
+          ["esm1rr","esm2r"],
+          ["esm2rr","esm1r"],
+          //middle
+          ["esm3rr","esm4r"],
+          ["esm4rr","esm3r"],
+          //bottom of muffler
+          ["esm5rr","esm6r"],
+          ["esm6rr","esm5r"],
+
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          //exhaust tip nodes
+          ["es6r", "es1r"],
+          ["es6r", "es3r"],
+          ["es6r", "es4r"],
+          ["es6r", "es2r"],
+          ["es5r", "esm2r"],
+          ["es5r", "esm1r", {"isExhaust":"mainEngine"}],
+          ["es5r", "esm1rr"],
+          ["es5r", "esm2rr"],
+          ["es5r", "es3r"],
+          ["es5r", "es1r"],
+          ["es5r", "es2r"],
+          ["es5r", "es4r"],
+          ["es6r", "esm1rr"],
+          ["es6r", "esm1r"],
+          ["es6r", "esm2r"],
+          ["es6r", "esm2rr"],
+          ["es6r", "es5r", {"isExhaust":"mainEngine"}],
+
+          //rigids
+          ["es2r", "esm3rr"],
+          ["es1r", "esm3r"],
+          ["es3r", "esm4r"],
+          ["es4r", "esm4rr"],
+
+          //["es1r","esm1r"],
+          //["es1r","esm2r"],
+          //["es1r","esm1rr"],
+          //["es1r","esm2rr"],
+          //
+          //["es2r","esm1r"],
+          //["es2r","esm2r"],
+          //["es2r","esm1rr"],
+          //["es2r","esm2rr"],
+          //
+          //["es3r","esm1r"],
+          //["es3r","esm2r"],
+          //["es3r","esm1rr"],
+          //["es3r","esm2rr"],
+
+          ["es10r","esm5r", {"isExhaust":"mainEngine"}],
+          ["es10r","esm6r"],
+          ["es10r","esm5rr"],
+          ["es10r","esm6rr"],
+
+          ["es11r","esm5r"],
+          ["es11r","esm6r"],
+          ["es11r","esm5rr"],
+          ["es11r","esm6rr"],
+
+          ["es12r","esm5r"],
+          ["es12r","esm6r"],
+          ["es12r","esm5rr"],
+          ["es12r","esm6rr"],
+
+          ["esm3r", "es10r"],
+          ["esm4r", "es10r"],
+
+          //["es3r", "esm3rr"],
+          //["es2r", "esm3rr"],
+
+          //muffler
+          ["esm1r","esm5r"],
+          ["esm2r","esm6r"],
+          ["esm1rr","esm5rr"],
+          ["esm2rr","esm6rr"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1r","esa1r"],
+          ["esm1rr","esa1r"],
+          ["esm2r","esa1r"],
+          ["esm2rr","esa1r"],
+
+          ["esm3r","esa1r"],
+          ["esm3rr","esa1r"],
+          ["esm4r","esa1r"],
+          ["esm4rr","esa1r"],
+
+          //["es5r","esa1r"],
+
+          //lower
+          ["esm5r","esa2r"],
+          ["esm5rr","esa2r"],
+          ["esm6r","esa2r"],
+          ["esm6rr","esa2r"],
+
+          ["esm3r","esa2r"],
+          ["esm3rr","esa2r"],
+          ["esm4r","esa2r"],
+          ["esm4rr","esa2r"],
+
+          //["es7r","esa2r"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_R"},
+          {"optional":true},
+          ["esa1r","dc15rrr"],
+          ["esa1r","dc15rr"],
+          ["esa1r","dc13rr"],
+
+          ["esm2r","dc15rrr"],
+          ["esm2r","dc15rr"],
+          ["esm2r","dc13rr"],
+          {"breakGroup":"exhauststack_b_R"},
+          ["esa2r","dc9rr"],
+          ["esa2r","dc10rr"],
+          ["esa2r","dc11rr"],
+          ["esa2r","dc13rr"],
+
+          ["esm6r","dc9rr"],
+          ["esm6r","dc10rr"],
+          ["esm6r","dc11rr"],
+          ["esm6r","dc13rr"],
+          ["es10r","dc11rr"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_R"},
+          ["es10r","ex1r", {"isExhaust":"mainEngine"}],
+          ["es11r","ex1r"],
+          ["es12r","ex1r"],
+
+          ["es8r","ex1l"],
+          ["es9r","ex1l"],
+
+          ["es9r","en2r"],
+          //["es7r","en2r"],
+          {"breakGroup":""},
+
+          //--LEFT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["es8l","es9l"],
+
+          ["es10l","es11l"],
+          ["es11l","es12l"],
+          ["es12l","es10l"],
+
+          ["esm1l", "es1l"],
+          ["esm1ll", "es2l"],
+          ["esm2l", "es3l"],
+          ["esm2ll", "es4l"],
+          ["es1l", "es2l"],
+          ["es1l", "es3l"],
+          ["es3l", "es4l"],
+          ["es4l", "es2l"],
+
+          ["es1l", "es4l"],
+          ["es2l", "es3l"],
+
+          //muffler perimeter square
+          ["esm1l","esm2l"],
+          ["esm2l","esm2ll"],
+          ["esm2ll","esm1ll"],
+          ["esm1ll","esm1l"],
+
+          ["esm3l","esm4l"],
+          ["esm4l","esm4ll"],
+          ["esm4ll","esm3ll"],
+          ["esm3ll","esm3l"],
+
+          ["esm5l","esm6l"],
+          ["esm6l","esm6ll"],
+          ["esm6ll","esm5ll"],
+          ["esm5ll","esm5l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          //["es1l","es5l", {"isExhaust":"mainEngine"}],
+          //["es1l","es6l"],
+          //["es2l","es4l"],
+          //["es3l","es4l"],
+
+          //["es7l","es11l"],
+          //["es7l","es12l"],
+          ["es8l","es10l"],
+          ["es9l","es10l"],
+
+          //muffler main shape lengthwise
+          ["esm1l","esm3l", {"isExhaust":"mainEngine"}],
+          ["esm1ll","esm3ll"],
+          ["esm2l","esm4l"],
+          ["esm2ll","esm4ll"],
+          ["esm3l","esm5l", {"isExhaust":"mainEngine"}],
+          ["esm3ll","esm5ll"],
+          ["esm4l","esm6l"],
+          ["esm4ll","esm6ll"],
+
+          //muffler to pipe
+          //upper
+          //["es4l","esm1ll"],
+          //["es6l","esm2ll"],
+          //["es4l","esm1l"],
+          //["es5l","esm1l", {"isExhaust":"mainEngine"}],
+          //["es5l","esm2l"],
+
+          //lower
+          //["esm5ll","es7l"],
+          //["esm6ll","es7l"],
+
+          ["esm5l","es8l"],
+          ["esm6l","es9l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1l","es4l"],
+          //["es2l","es6l"],
+          //["es3l","es5l"],
+
+          //["es4l","esm2ll"],
+          //["es6l","esm1ll"],
+          //["es6l","esm1l"],
+          //["es5l","esm2ll"],
+
+          ["es1l", "esm1ll"],
+          ["es2l", "esm1l"],
+          ["es3l", "esm2ll"],
+          ["es4l", "esm2l"],
+          ["es2l", "esm2ll"],
+          ["es4l", "esm1ll"],
+          ["es1l", "esm2l"],
+          ["es3l", "esm1l"],
+
+          //
+          ["esm5ll","es8l"],
+          ["esm6ll","es9l"],
+          ["esm5ll","es9l"],
+          ["esm6ll","es8l"],
+
+          //["esm5l","es7l"],
+          //["esm6l","es7l"],
+
+          //["es7l","es10l"],
+          ["es8l","es11l"],
+          ["es8l","es12l"],
+          ["es9l","es11l"],
+          ["es9l","es12l"],
+
+          //muffler
+          ["esm1l","esm4l"],
+          ["esm2l","esm3l"],
+          ["esm1ll","esm4ll"],
+          ["esm2ll","esm3ll"],
+
+          ["esm3l","esm6l"],
+          ["esm4l","esm5l"],
+          ["esm3ll","esm6ll"],
+          ["esm4ll","esm5ll"],
+
+          ["esm1ll","esm3l"],
+          ["esm1l","esm3ll"],
+          ["esm2ll","esm4l"],
+          ["esm2l","esm4ll"],
+
+          ["esm3ll","esm5l"],
+          ["esm3l","esm5ll"],
+          ["esm4ll","esm6l"],
+          ["esm4l","esm6ll"],
+
+          //top of muffler
+          ["esm1ll","esm2l"],
+          ["esm2ll","esm1l"],
+          //middle
+          ["esm3ll","esm4l"],
+          ["esm4ll","esm3l"],
+          //bottom of muffler
+          ["esm5ll","esm6l"],
+          ["esm6ll","esm5l"],
+
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          //exhaust tip nodes
+          ["es6l", "es1l"],
+          ["es6l", "es3l"],
+          ["es6l", "es4l"],
+          ["es6l", "es2l"],
+          ["es5l", "esm2l"],
+          ["es5l", "esm1l", {"isExhaust":"mainEngine"}],
+          ["es5l", "esm1ll"],
+          ["es5l", "esm2ll"],
+          ["es5l", "es3l"],
+          ["es5l", "es1l"],
+          ["es5l", "es2l"],
+          ["es5l", "es4l"],
+          ["es6l", "esm1ll"],
+          ["es6l", "esm1l"],
+          ["es6l", "esm2l"],
+          ["es6l", "esm2ll"],
+          ["es6l", "es5l", {"isExhaust":"mainEngine"}],
+
+          //rigids
+          ["es2l", "esm3ll"],
+          ["es1l", "esm3l"],
+          ["es3l", "esm4l"],
+          ["es4l", "esm4ll"],
+
+          //["es1l","esm1l"],
+          //["es1l","esm2l"],
+          //["es1l","esm1ll"],
+          //["es1l","esm2ll"],
+          //
+          //["es2l","esm1l"],
+          //["es2l","esm2l"],
+          //["es2l","esm1ll"],
+          //["es2l","esm2ll"],
+          //
+          //["es3l","esm1l"],
+          //["es3l","esm2l"],
+          //["es3l","esm1ll"],
+          //["es3l","esm2ll"],
+
+          ["es10l","esm5l", {"isExhaust":"mainEngine"}],
+          ["es10l","esm6l"],
+          ["es10l","esm5ll"],
+          ["es10l","esm6ll"],
+
+          ["es11l","esm5l"],
+          ["es11l","esm6l"],
+          ["es11l","esm5ll"],
+          ["es11l","esm6ll"],
+
+          ["es12l","esm5l"],
+          ["es12l","esm6l"],
+          ["es12l","esm5ll"],
+          ["es12l","esm6ll"],
+
+          ["esm3l", "es10l"],
+          ["esm4l", "es10l"],
+
+          //["es3l", "esm3ll"],
+          //["es2l", "esm3ll"],
+
+          //muffler
+          ["esm1l","esm5l"],
+          ["esm2l","esm6l"],
+          ["esm1ll","esm5ll"],
+          ["esm2ll","esm6ll"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1l","esa1l"],
+          ["esm1ll","esa1l"],
+          ["esm2l","esa1l"],
+          ["esm2ll","esa1l"],
+
+          ["esm3l","esa1l"],
+          ["esm3ll","esa1l"],
+          ["esm4l","esa1l"],
+          ["esm4ll","esa1l"],
+
+          //["es5l","esa1l"],
+
+          //lower
+          ["esm5l","esa2l"],
+          ["esm5ll","esa2l"],
+          ["esm6l","esa2l"],
+          ["esm6ll","esa2l"],
+
+          ["esm3l","esa2l"],
+          ["esm3ll","esa2l"],
+          ["esm4l","esa2l"],
+          ["esm4ll","esa2l"],
+
+          //["es7l","esa2l"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_L"},
+          {"optional":true},
+          ["esa1l","dc15lll"],
+          ["esa1l","dc15ll"],
+          ["esa1l","dc13ll"],
+
+          ["esm2l","dc15lll"],
+          ["esm2l","dc15ll"],
+          ["esm2l","dc13ll"],
+          {"breakGroup":"exhauststack_b_L"},
+          ["esa2l","dc9ll"],
+          ["esa2l","dc10ll"],
+          ["esa2l","dc11ll"],
+          ["esa2l","dc13ll"],
+
+          ["esm6l","dc9ll"],
+          ["esm6l","dc10ll"],
+          ["esm6l","dc11ll"],
+          ["esm6l","dc13ll"],
+
+          ["es10l","dc11ll"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_L"},
+          ["es10l","ex1l", {"isExhaust":"mainEngine"}],
+          ["es11l","ex1l"],
+          ["es12l","ex1l"],
+
+          ["es8l","ex1r"],
+          ["es9l","ex1r"],
+
+          ["es9l","en2r"],
+          //["es7l","en2r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_exhauststack_R"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["esm2rr", "es4r", "esm1rr"],
+            ["es2r", "esm1rr", "es4r"],
+            ["esm1rr", "es2r", "esm1r"],
+            ["es1r", "esm1r", "es2r"],
+            ["esm1r", "es1r", "esm2r"],
+            ["es3r", "esm2r", "es1r"],
+            ["es3r", "es4r", "esm2r"],
+            ["esm2rr", "esm2r", "es4r"],
+            ["es2r", "es4r", "es1r"],
+            ["es3r", "es1r", "es4r"],
+
+            //muffler
+            ["esm1rr","esm3rr","esm4rr"],
+            ["esm1rr","esm4rr","esm2rr"],
+            ["esm3rr","esm5rr","esm6rr"],
+            ["esm3rr","esm6rr","esm4rr"],
+
+            ["esm1r","esm4r","esm3r"],
+            ["esm1r","esm2r","esm4r"],
+            ["esm3r","esm6r","esm5r"],
+            ["esm3r","esm4r","esm6r"],
+
+            ["esm2rr","esm4rr","esm4r"],
+            ["esm2rr","esm4r","esm2r"],
+            ["esm4rr","esm6rr","esm6r"],
+            ["esm4rr","esm6r","esm4r"],
+
+            ["esm1rr","esm3r","esm3rr"],
+            ["esm1rr","esm1r","esm3r"],
+            ["esm3rr","esm5r","esm5rr"],
+            ["esm3rr","esm3r","esm5r"],
+
+            //lower pipe
+            ["es9r", "esm6rr", "es8r"],
+            ["esm5rr", "es8r", "esm6rr"],
+            ["es12r", "es9r", "es11r"],
+            ["es8r", "es11r", "es9r"],
+            ["es8r", "esm5rr", "esm5r"],
+            ["es11r", "es8r", "es10r"],
+            ["esm5r", "es10r", "es8r"],
+            ["es10r", "esm5r", "esm6r"],
+            ["es9r", "es10r", "esm6r"],
+            ["esm6rr", "es9r", "esm6r"],
+            ["es12r", "es10r", "es9r"],
+
+            //inner tip
+            ["es10r","es12r","es11r"],
+
+            {"group":""},
+
+            //LEFT EXHAUST PIPE
+            {"group":"semi_exhauststack_L"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["es4l", "esm2ll", "esm1ll"],
+            ["esm1ll", "es2l", "es4l"],
+            ["es2l", "esm1ll", "esm1l"],
+            ["esm1l", "es1l", "es2l"],
+            ["es1l", "esm1l", "esm2l"],
+            ["esm2l", "es3l", "es1l"],
+            ["es4l", "es3l", "esm2l"],
+            ["esm2l", "esm2ll", "es4l"],
+            ["es4l", "es2l", "es1l"],
+            ["es1l", "es3l", "es4l"],
+
+            //muffler
+            ["esm1ll","esm4ll","esm3ll"],
+            ["esm1ll","esm2ll","esm4ll"],
+            ["esm3ll","esm6ll","esm5ll"],
+            ["esm3ll","esm4ll","esm6ll"],
+
+            ["esm1l","esm3l","esm4l"],
+            ["esm1l","esm4l","esm2l"],
+            ["esm3l","esm5l","esm6l"],
+            ["esm3l","esm6l","esm4l"],
+
+            ["esm2ll","esm4l","esm4ll"],
+            ["esm2ll","esm2l","esm4l"],
+            ["esm4ll","esm6l","esm6ll"],
+            ["esm4ll","esm4l","esm6l"],
+
+            ["esm1ll","esm3ll","esm3l"],
+            ["esm1ll","esm3l","esm1l"],
+            ["esm3ll","esm5ll","esm5l"],
+            ["esm3ll","esm5l","esm3l"],
+
+            //lower pipe
+            ["esm6ll", "es9l", "es8l"],
+            ["es8l", "esm5ll", "esm6ll"],
+            ["es9l", "es12l", "es11l"],
+            ["es11l", "es8l", "es9l"],
+            ["esm5ll", "es8l", "esm5l"],
+            ["es8l", "es11l", "es10l"],
+            ["es10l", "esm5l", "es8l"],
+            ["esm5l", "es10l", "esm6l"],
+            ["es10l", "es9l", "esm6l"],
+            ["es9l", "esm6ll", "esm6l"],
+            ["es10l", "es12l", "es9l"],
+
+            //inner tip
+            ["es10l","es11l","es12l"],
+            {"group":""},
+    ],
+},
+"semi_exhauststacks_b": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Bulldog Exhaust Stacks",
+        "value":1000,
+    },
+    "slotType" : "semi_exhauststacks",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_heatshields","semi_heatshields_stock", "Heat Shields"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_b_R", ["semi_exhauststack_R"]],
+         ["semi_exhauststack_b_L", ["semi_exhauststack_L"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":10,
+        "$+highShelfGain":-4,
+        "$+eqFundamentalGain":4,
+    }
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--RIGHT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_R"},
+         //top tip
+         ["es5r",-1.05, -1.01, 3.05, {"collision":false,"selfCollision":false}],
+         ["es6r",-1.05, -0.76, 3.25, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.2,"exhaustAudioGainChange":-3}],
+
+         ["es1r", -0.98, -0.89, 3.05],
+         ["es2r", -1.14, -0.89, 3.05],
+         ["es3r", -0.98, -1.08, 3.1],
+         ["es4r", -1.14, -1.08, 3.1],
+
+         ["et1r", -0.98, -0.75, 3.15],
+         ["et2r", -1.14, -0.75, 3.15],
+         ["et3r", -0.98, -0.75, 3.37],
+         ["et4r", -1.14, -0.75, 3.37],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1r", -0.98, -0.89, 2.48],
+         ["esm1rr",-1.17, -0.89, 2.48],
+         ["esm2r", -0.98, -1.08, 2.48],
+         ["esm2rr",-1.17, -1.08, 2.48],
+
+         ["esm3r", -0.98, -0.89, 1.78],
+         ["esm3rr",-1.17, -0.89, 1.78],
+         ["esm4r", -0.98, -1.08, 1.78],
+         ["esm4rr",-1.17, -1.08, 1.78],
+
+         ["esm5r", -0.98, -0.89, 1.0],
+         ["esm5rr",-1.17, -0.89, 1.025],
+         ["esm6r", -0.98, -1.08, 1.0],
+         ["esm6rr",-1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7r",-0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8r",-1.0, -0.93, 0.81],
+         ["es9r",-1.0, -1.01, 0.81],
+
+         ["es10r",-0.50, -0.97, 0.49],
+         ["es11r",-0.52, -0.93, 0.40],
+         ["es12r",-0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_R_attach"},
+         ["esa1r",-0.80,-0.84, 2.39],
+         ["esa2r",-0.80,-0.84, 1.17],
+         {"group":""},
+
+         {"selfCollision":true},
+         {"collision":true},
+         //--LEFT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_L"},
+         //top tip
+         ["es5l", 1.05, -1.01, 3.05, {"collision":false,"selfCollision":false}],
+         ["es6l", 1.05, -0.76, 3.25, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.2,"exhaustAudioGainChange":-3}],
+
+         ["es1l", 0.98, -0.89, 3.05],
+         ["es2l", 1.14, -0.89, 3.05],
+         ["es3l", 0.98, -1.08, 3.1],
+         ["es4l", 1.14, -1.08, 3.1],
+
+         ["et1l", 0.98, -0.75, 3.15],
+         ["et2l", 1.14, -0.75, 3.15],
+         ["et3l", 0.98, -0.75, 3.37],
+         ["et4l", 1.14, -0.75, 3.37],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1l",  0.98, -0.89, 2.48],
+         ["esm1ll", 1.17, -0.89, 2.48],
+         ["esm2l",  0.98, -1.08, 2.48],
+         ["esm2ll", 1.17, -1.08, 2.48],
+
+         ["esm3l",  0.98, -0.89, 1.78],
+         ["esm3ll", 1.17, -0.89, 1.78],
+         ["esm4l",  0.98, -1.08, 1.78],
+         ["esm4ll", 1.17, -1.08, 1.78],
+
+         ["esm5l",  0.98, -0.89, 1.0],
+         ["esm5ll", 1.17, -0.89, 1.025],
+         ["esm6l",  0.98, -1.08, 1.0],
+         ["esm6ll", 1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7l", 0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8l", 1.0, -0.93, 0.81],
+         ["es9l", 1.0, -1.01, 0.81],
+
+         ["es10l", 0.50, -0.97, 0.49],
+         ["es11l", 0.52, -0.93, 0.40],
+         ["es12l", 0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_L_attach"},
+         ["esa1l", 0.80,-0.84, 2.39],
+         ["esa2l", 0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RIGHT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["es8r","es9r"],
+
+          ["es10r","es11r"],
+          ["es11r","es12r"],
+          ["es12r","es10r"],
+
+          ["esm1r", "es1r"],
+          ["esm1rr", "es2r"],
+          ["esm2r", "es3r"],
+          ["esm2rr", "es4r"],
+          ["es1r", "es2r"],
+          ["es1r", "es3r"],
+          ["es3r", "es4r"],
+          ["es4r", "es2r"],
+
+          ["et1r", "et2r"],
+          ["et1r", "et3r"],
+          ["et3r", "et4r"],
+          ["et4r", "et2r"],
+
+          ["es1r", "es4r"],
+          ["es2r", "es3r"],
+
+          ["et1r", "et4r"],
+          ["et2r", "et3r"],
+
+          ["et1r", "es1r"],
+          ["et2r", "es2r"],
+          ["et3r", "es3r"],
+          ["et4r", "es4r"],
+
+          //muffler perimeter square
+          ["esm1r","esm2r"],
+          ["esm2r","esm2rr"],
+          ["esm2rr","esm1rr"],
+          ["esm1rr","esm1r"],
+
+          ["esm3r","esm4r"],
+          ["esm4r","esm4rr"],
+          ["esm4rr","esm3rr"],
+          ["esm3rr","esm3r"],
+
+          ["esm5r","esm6r"],
+          ["esm6r","esm6rr"],
+          ["esm6rr","esm5rr"],
+          ["esm5rr","esm5r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          //["es1r","es5r", {"isExhaust":"mainEngine"}],
+          //["es1r","es6r"],
+          //["es2r","es4r"],
+          //["es3r","es4r"],
+
+          //["es7r","es11r"],
+          //["es7r","es12r"],
+          ["es8r","es10r"],
+          ["es9r","es10r"],
+
+          //muffler main shape lengthwise
+          ["esm1r","esm3r", {"isExhaust":"mainEngine"}],
+          ["esm1rr","esm3rr"],
+          ["esm2r","esm4r"],
+          ["esm2rr","esm4rr"],
+          ["esm3r","esm5r", {"isExhaust":"mainEngine"}],
+          ["esm3rr","esm5rr"],
+          ["esm4r","esm6r"],
+          ["esm4rr","esm6rr"],
+
+          //muffler to pipe
+          //upper
+          //["es4r","esm1rr"],
+          //["es6r","esm2rr"],
+          //["es4r","esm1r"],
+          //["es5r","esm1r", {"isExhaust":"mainEngine"}],
+          //["es5r","esm2r"],
+
+          //lower
+          //["esm5rr","es7r"],
+          //["esm6rr","es7r"],
+
+          ["esm5r","es8r"],
+          ["esm6r","es9r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1r","es4r"],
+          //["es2r","es6r"],
+          //["es3r","es5r"],
+
+          //["es4r","esm2rr"],
+          //["es6r","esm1rr"],
+          //["es6r","esm1r"],
+          //["es5r","esm2rr"],
+
+          ["et1r", "es2r"],
+          ["et2r", "es1r"],
+          ["et3r", "es4r"],
+          ["et4r", "es3r"],
+          ["et3r", "es1r"],
+          ["et1r", "es3r"],
+          ["et4r", "es2r"],
+          ["et2r", "es4r"],
+
+          ["es1r", "esm1rr"],
+          ["es2r", "esm1r"],
+          ["es3r", "esm2rr"],
+          ["es4r", "esm2r"],
+          ["es2r", "esm2rr"],
+          ["es4r", "esm1rr"],
+          ["es1r", "esm2r"],
+          ["es3r", "esm1r"],
+
+          //
+          ["esm5rr","es8r"],
+          ["esm6rr","es9r"],
+          ["esm5rr","es9r"],
+          ["esm6rr","es8r"],
+
+          //["esm5r","es7r"],
+          //["esm6r","es7r"],
+
+          //["es7r","es10r"],
+          ["es8r","es11r"],
+          ["es8r","es12r"],
+          ["es9r","es11r"],
+          ["es9r","es12r"],
+
+          //muffler
+          ["esm1r","esm4r"],
+          ["esm2r","esm3r"],
+          ["esm1rr","esm4rr"],
+          ["esm2rr","esm3rr"],
+
+          ["esm3r","esm6r"],
+          ["esm4r","esm5r"],
+          ["esm3rr","esm6rr"],
+          ["esm4rr","esm5rr"],
+
+          ["esm1rr","esm3r"],
+          ["esm1r","esm3rr"],
+          ["esm2rr","esm4r"],
+          ["esm2r","esm4rr"],
+
+          ["esm3rr","esm5r"],
+          ["esm3r","esm5rr"],
+          ["esm4rr","esm6r"],
+          ["esm4r","esm6rr"],
+
+          //top of muffler
+          ["esm1rr","esm2r"],
+          ["esm2rr","esm1r"],
+          //middle
+          ["esm3rr","esm4r"],
+          ["esm4rr","esm3r"],
+          //bottom of muffler
+          ["esm5rr","esm6r"],
+          ["esm6rr","esm5r"],
+
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          //exhaust tip nodes
+          ["es5r", "esm1r", {"isExhaust":"mainEngine"}],
+          ["es6r", "es5r", {"isExhaust":"mainEngine"}],
+          ["es6r", "et4r"],
+          ["es6r", "et3r"],
+          ["es6r", "et1r"],
+          ["es6r", "et2r"],
+          ["es6r", "es3r"],
+          ["es6r", "es1r"],
+          ["es6r", "es2r"],
+          ["es6r", "es4r"],
+          ["es5r", "es3r"],
+          ["es5r", "es1r"],
+          ["es5r", "es2r"],
+          ["es5r", "es4r"],
+          ["es5r", "et4r"],
+          ["es5r", "et2r"],
+          ["es5r", "et1r"],
+          ["es5r", "et3r"],
+
+          //rigids
+          ["es2r", "esm3rr"],
+          ["es1r", "esm3r"],
+          ["es3r", "esm4r"],
+          ["es4r", "esm4rr"],
+
+          ["et2r", "esm2r"],
+          ["et1r", "esm1r"],
+          ["et4r", "esm2rr"],
+          ["et3r", "esm2r"],
+
+          //["es1r","esm1r"],
+          //["es1r","esm2r"],
+          //["es1r","esm1rr"],
+          //["es1r","esm2rr"],
+          //
+          //["es2r","esm1r"],
+          //["es2r","esm2r"],
+          //["es2r","esm1rr"],
+          //["es2r","esm2rr"],
+          //
+          //["es3r","esm1r"],
+          //["es3r","esm2r"],
+          //["es3r","esm1rr"],
+          //["es3r","esm2rr"],
+
+          ["es10r","esm5r", {"isExhaust":"mainEngine"}],
+          ["es10r","esm6r"],
+          ["es10r","esm5rr"],
+          ["es10r","esm6rr"],
+
+          ["es11r","esm5r"],
+          ["es11r","esm6r"],
+          ["es11r","esm5rr"],
+          ["es11r","esm6rr"],
+
+          ["es12r","esm5r"],
+          ["es12r","esm6r"],
+          ["es12r","esm5rr"],
+          ["es12r","esm6rr"],
+
+          ["esm3r", "es10r"],
+          ["esm4r", "es10r"],
+
+          //["es3r", "esm3rr"],
+          //["es2r", "esm3rr"],
+
+          //muffler
+          ["esm1r","esm5r"],
+          ["esm2r","esm6r"],
+          ["esm1rr","esm5rr"],
+          ["esm2rr","esm6rr"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1r","esa1r"],
+          ["esm1rr","esa1r"],
+          ["esm2r","esa1r"],
+          ["esm2rr","esa1r"],
+
+          ["esm3r","esa1r"],
+          ["esm3rr","esa1r"],
+          ["esm4r","esa1r"],
+          ["esm4rr","esa1r"],
+
+          //["es5r","esa1r"],
+
+          //lower
+          ["esm5r","esa2r"],
+          ["esm5rr","esa2r"],
+          ["esm6r","esa2r"],
+          ["esm6rr","esa2r"],
+
+          ["esm3r","esa2r"],
+          ["esm3rr","esa2r"],
+          ["esm4r","esa2r"],
+          ["esm4rr","esa2r"],
+
+          //["es7r","esa2r"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_R"},
+          {"optional":true},
+          ["esa1r","dc15rrr"],
+          ["esa1r","dc15rr"],
+          ["esa1r","dc13rr"],
+
+          ["esm2r","dc15rrr"],
+          ["esm2r","dc15rr"],
+          ["esm2r","dc13rr"],
+          {"breakGroup":"exhauststack_b_R"},
+          ["esa2r","dc9rr"],
+          ["esa2r","dc10rr"],
+          ["esa2r","dc11rr"],
+          ["esa2r","dc13rr"],
+
+          ["esm6r","dc9rr"],
+          ["esm6r","dc10rr"],
+          ["esm6r","dc11rr"],
+          ["esm6r","dc13rr"],
+          ["es10r","dc11rr"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_R"},
+          ["es10r","ex1r", {"isExhaust":"mainEngine"}],
+          ["es11r","ex1r"],
+          ["es12r","ex1r"],
+
+          ["es8r","ex1l"],
+          ["es9r","ex1l"],
+
+          ["es9r","en2r"],
+          //["es7r","en2r"],
+          {"breakGroup":""},
+
+          //--LEFT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["es8l","es9l"],
+
+          ["es10l","es11l"],
+          ["es11l","es12l"],
+          ["es12l","es10l"],
+
+          ["esm1l", "es1l"],
+          ["esm1ll", "es2l"],
+          ["esm2l", "es3l"],
+          ["esm2ll", "es4l"],
+          ["es1l", "es2l"],
+          ["es1l", "es3l"],
+          ["es3l", "es4l"],
+          ["es4l", "es2l"],
+
+          ["et1l", "et2l"],
+          ["et1l", "et3l"],
+          ["et3l", "et4l"],
+          ["et4l", "et2l"],
+
+          ["es1l", "es4l"],
+          ["es2l", "es3l"],
+
+          ["et1l", "et4l"],
+          ["et2l", "et3l"],
+
+          ["et1l", "es1l"],
+          ["et2l", "es2l"],
+          ["et3l", "es3l"],
+          ["et4l", "es4l"],
+
+          //muffler perimeter square
+          ["esm1l","esm2l"],
+          ["esm2l","esm2ll"],
+          ["esm2ll","esm1ll"],
+          ["esm1ll","esm1l"],
+
+          ["esm3l","esm4l"],
+          ["esm4l","esm4ll"],
+          ["esm4ll","esm3ll"],
+          ["esm3ll","esm3l"],
+
+          ["esm5l","esm6l"],
+          ["esm6l","esm6ll"],
+          ["esm6ll","esm5ll"],
+          ["esm5ll","esm5l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          //["es1l","es5l", {"isExhaust":"mainEngine"}],
+          //["es1l","es6l"],
+          //["es2l","es4l"],
+          //["es3l","es4l"],
+
+          //["es7l","es11l"],
+          //["es7l","es12l"],
+          ["es8l","es10l"],
+          ["es9l","es10l"],
+
+          //muffler main shape lengthwise
+          ["esm1l","esm3l", {"isExhaust":"mainEngine"}],
+          ["esm1ll","esm3ll"],
+          ["esm2l","esm4l"],
+          ["esm2ll","esm4ll"],
+          ["esm3l","esm5l", {"isExhaust":"mainEngine"}],
+          ["esm3ll","esm5ll"],
+          ["esm4l","esm6l"],
+          ["esm4ll","esm6ll"],
+
+          //muffler to pipe
+          //upper
+          //["es4l","esm1ll"],
+          //["es6l","esm2ll"],
+          //["es4l","esm1l"],
+          //["es5l","esm1l", {"isExhaust":"mainEngine"}],
+          //["es5l","esm2l"],
+
+          //lower
+          //["esm5ll","es7l"],
+          //["esm6ll","es7l"],
+
+          ["esm5l","es8l"],
+          ["esm6l","es9l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1l","es4l"],
+          //["es2l","es6l"],
+          //["es3l","es5l"],
+
+          //["es4l","esm2ll"],
+          //["es6l","esm1ll"],
+          //["es6l","esm1l"],
+          //["es5l","esm2ll"],
+
+          ["et1l", "es2l"],
+          ["et2l", "es1l"],
+          ["et3l", "es4l"],
+          ["et4l", "es3l"],
+          ["et3l", "es1l"],
+          ["et1l", "es3l"],
+          ["et4l", "es2l"],
+          ["et2l", "es4l"],
+
+          ["es1l", "esm1ll"],
+          ["es2l", "esm1l"],
+          ["es3l", "esm2ll"],
+          ["es4l", "esm2l"],
+          ["es2l", "esm2ll"],
+          ["es4l", "esm1ll"],
+          ["es1l", "esm2l"],
+          ["es3l", "esm1l"],
+
+          //
+          ["esm5ll","es8l"],
+          ["esm6ll","es9l"],
+          ["esm5ll","es9l"],
+          ["esm6ll","es8l"],
+
+          //["esm5l","es7l"],
+          //["esm6l","es7l"],
+
+          //["es7l","es10l"],
+          ["es8l","es11l"],
+          ["es8l","es12l"],
+          ["es9l","es11l"],
+          ["es9l","es12l"],
+
+          //muffler
+          ["esm1l","esm4l"],
+          ["esm2l","esm3l"],
+          ["esm1ll","esm4ll"],
+          ["esm2ll","esm3ll"],
+
+          ["esm3l","esm6l"],
+          ["esm4l","esm5l"],
+          ["esm3ll","esm6ll"],
+          ["esm4ll","esm5ll"],
+
+          ["esm1ll","esm3l"],
+          ["esm1l","esm3ll"],
+          ["esm2ll","esm4l"],
+          ["esm2l","esm4ll"],
+
+          ["esm3ll","esm5l"],
+          ["esm3l","esm5ll"],
+          ["esm4ll","esm6l"],
+          ["esm4l","esm6ll"],
+
+          //top of muffler
+          ["esm1ll","esm2l"],
+          ["esm2ll","esm1l"],
+          //middle
+          ["esm3ll","esm4l"],
+          ["esm4ll","esm3l"],
+          //bottom of muffler
+          ["esm5ll","esm6l"],
+          ["esm6ll","esm5l"],
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          //exhaust tip nodes
+          ["es5l", "esm1l", {"isExhaust":"mainEngine"}],
+          ["es6l", "es5l", {"isExhaust":"mainEngine"}],
+          ["es6l", "et4l"],
+          ["es6l", "et3l"],
+          ["es6l", "et1l"],
+          ["es6l", "et2l"],
+          ["es6l", "es3l"],
+          ["es6l", "es1l"],
+          ["es6l", "es2l"],
+          ["es6l", "es4l"],
+          ["es5l", "es3l"],
+          ["es5l", "es1l"],
+          ["es5l", "es2l"],
+          ["es5l", "es4l"],
+          ["es5l", "et4l"],
+          ["es5l", "et2l"],
+          ["es5l", "et1l"],
+          ["es5l", "et3l"],
+
+          //rigids
+          ["es2l", "esm3ll"],
+          ["es1l", "esm3l"],
+          ["es3l", "esm4l"],
+          ["es4l", "esm4ll"],
+
+          ["et2l", "esm2l"],
+          ["et1l", "esm1l"],
+          ["et4l", "esm2ll"],
+          ["et3l", "esm2l"],
+
+          //["es1l","esm1l"],
+          //["es1l","esm2l"],
+          //["es1l","esm1ll"],
+          //["es1l","esm2ll"],
+          //
+          //["es2l","esm1l"],
+          //["es2l","esm2l"],
+          //["es2l","esm1ll"],
+          //["es2l","esm2ll"],
+          //
+          //["es3l","esm1l"],
+          //["es3l","esm2l"],
+          //["es3l","esm1ll"],
+          //["es3l","esm2ll"],
+
+          ["es10l","esm5l", {"isExhaust":"mainEngine"}],
+          ["es10l","esm6l"],
+          ["es10l","esm5ll"],
+          ["es10l","esm6ll"],
+
+          ["es11l","esm5l"],
+          ["es11l","esm6l"],
+          ["es11l","esm5ll"],
+          ["es11l","esm6ll"],
+
+          ["es12l","esm5l"],
+          ["es12l","esm6l"],
+          ["es12l","esm5ll"],
+          ["es12l","esm6ll"],
+
+          ["esm3l", "es10l"],
+          ["esm4l", "es10l"],
+
+          //["es3l", "esm3ll"],
+          //["es2l", "esm3ll"],
+
+          //muffler
+          ["esm1l","esm5l"],
+          ["esm2l","esm6l"],
+          ["esm1ll","esm5ll"],
+          ["esm2ll","esm6ll"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1l","esa1l"],
+          ["esm1ll","esa1l"],
+          ["esm2l","esa1l"],
+          ["esm2ll","esa1l"],
+
+          ["esm3l","esa1l"],
+          ["esm3ll","esa1l"],
+          ["esm4l","esa1l"],
+          ["esm4ll","esa1l"],
+
+          //["es5l","esa1l"],
+
+          //lower
+          ["esm5l","esa2l"],
+          ["esm5ll","esa2l"],
+          ["esm6l","esa2l"],
+          ["esm6ll","esa2l"],
+
+          ["esm3l","esa2l"],
+          ["esm3ll","esa2l"],
+          ["esm4l","esa2l"],
+          ["esm4ll","esa2l"],
+
+          //["es7l","esa2l"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_L"},
+          {"optional":true},
+          ["esa1l","dc15lll"],
+          ["esa1l","dc15ll"],
+          ["esa1l","dc13ll"],
+
+          ["esm2l","dc15lll"],
+          ["esm2l","dc15ll"],
+          ["esm2l","dc13ll"],
+          {"breakGroup":"exhauststack_b_L"},
+          ["esa2l","dc9ll"],
+          ["esa2l","dc10ll"],
+          ["esa2l","dc11ll"],
+          ["esa2l","dc13ll"],
+
+          ["esm6l","dc9ll"],
+          ["esm6l","dc10ll"],
+          ["esm6l","dc11ll"],
+          ["esm6l","dc13ll"],
+
+          ["es10l","dc11ll"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_L"},
+          ["es10l","ex1l", {"isExhaust":"mainEngine"}],
+          ["es11l","ex1l"],
+          ["es12l","ex1l"],
+
+          ["es8l","ex1r"],
+          ["es9l","ex1r"],
+
+          ["es9l","en2r"],
+          //["es7l","en2r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_exhauststack_R"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["esm2rr", "es4r", "esm1rr"],
+            ["es2r", "esm1rr", "es4r"],
+            ["esm1rr", "es2r", "esm1r"],
+            ["es1r", "esm1r", "es2r"],
+            ["esm1r", "es1r", "esm2r"],
+            ["es3r", "esm2r", "es1r"],
+            ["es3r", "es4r", "esm2r"],
+            ["esm2rr", "esm2r", "es4r"],
+            //["es2r", "es4r", "es1r"],
+            //["es3r", "es1r", "es4r"],
+            ["es4r", "et4r", "es2r"],
+            ["et2r", "es2r", "et4r"],
+            ["es2r", "et2r", "es1r"],
+            ["et1r", "es1r", "et2r"],
+            ["et1r", "et3r", "es1r"],
+            ["es3r", "es1r", "et3r"],
+            ["et3r", "et4r", "es3r"],
+            ["es4r", "es3r", "et4r"],
+            ["et2r", "et4r", "et1r"],
+            ["et3r", "et1r", "et4r"],
+
+            //muffler
+            ["esm1rr","esm3rr","esm4rr"],
+            ["esm1rr","esm4rr","esm2rr"],
+            ["esm3rr","esm5rr","esm6rr"],
+            ["esm3rr","esm6rr","esm4rr"],
+
+            ["esm1r","esm4r","esm3r"],
+            ["esm1r","esm2r","esm4r"],
+            ["esm3r","esm6r","esm5r"],
+            ["esm3r","esm4r","esm6r"],
+
+            ["esm2rr","esm4rr","esm4r"],
+            ["esm2rr","esm4r","esm2r"],
+            ["esm4rr","esm6rr","esm6r"],
+            ["esm4rr","esm6r","esm4r"],
+
+            ["esm1rr","esm3r","esm3rr"],
+            ["esm1rr","esm1r","esm3r"],
+            ["esm3rr","esm5r","esm5rr"],
+            ["esm3rr","esm3r","esm5r"],
+
+            //lower pipe
+            ["es9r", "esm6rr", "es8r"],
+            ["esm5rr", "es8r", "esm6rr"],
+            ["es12r", "es9r", "es11r"],
+            ["es8r", "es11r", "es9r"],
+            ["es8r", "esm5rr", "esm5r"],
+            ["es11r", "es8r", "es10r"],
+            ["esm5r", "es10r", "es8r"],
+            ["es10r", "esm5r", "esm6r"],
+            ["es9r", "es10r", "esm6r"],
+            ["esm6rr", "es9r", "esm6r"],
+            ["es12r", "es10r", "es9r"],
+
+            //inner tip
+            ["es10r","es12r","es11r"],
+
+            {"group":""},
+
+            //LEFT EXHAUST PIPE
+            {"group":"semi_exhauststack_L"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["es4l", "esm2ll", "esm1ll"],
+            ["esm1ll", "es2l", "es4l"],
+            ["es2l", "esm1ll", "esm1l"],
+            ["esm1l", "es1l", "es2l"],
+            ["es1l", "esm1l", "esm2l"],
+            ["esm2l", "es3l", "es1l"],
+            ["es4l", "es3l", "esm2l"],
+            ["esm2l", "esm2ll", "es4l"],
+            //["es4l", "es2l", "es1l"],
+            //["es1l", "es3l", "es4l"],
+            ["et4l", "es4l", "es2l"],
+            ["es2l", "et2l", "et4l"],
+            ["et2l", "es2l", "es1l"],
+            ["es1l", "et1l", "et2l"],
+            ["et3l", "et1l", "es1l"],
+            ["es1l", "es3l", "et3l"],
+            ["et4l", "et3l", "es3l"],
+            ["es3l", "es4l", "et4l"],
+            ["et4l", "et2l", "et1l"],
+            ["et1l", "et3l", "et4l"],
+
+            //muffler
+            ["esm1ll","esm4ll","esm3ll"],
+            ["esm1ll","esm2ll","esm4ll"],
+            ["esm3ll","esm6ll","esm5ll"],
+            ["esm3ll","esm4ll","esm6ll"],
+
+            ["esm1l","esm3l","esm4l"],
+            ["esm1l","esm4l","esm2l"],
+            ["esm3l","esm5l","esm6l"],
+            ["esm3l","esm6l","esm4l"],
+
+            ["esm2ll","esm4l","esm4ll"],
+            ["esm2ll","esm2l","esm4l"],
+            ["esm4ll","esm6l","esm6ll"],
+            ["esm4ll","esm4l","esm6l"],
+
+            ["esm1ll","esm3ll","esm3l"],
+            ["esm1ll","esm3l","esm1l"],
+            ["esm3ll","esm5ll","esm5l"],
+            ["esm3ll","esm5l","esm3l"],
+
+            //lower pipe
+            ["esm6ll", "es9l", "es8l"],
+            ["es8l", "esm5ll", "esm6ll"],
+            ["es9l", "es12l", "es11l"],
+            ["es11l", "es8l", "es9l"],
+            ["esm5ll", "es8l", "esm5l"],
+            ["es8l", "es11l", "es10l"],
+            ["es10l", "esm5l", "es8l"],
+            ["esm5l", "es10l", "esm6l"],
+            ["es10l", "es9l", "esm6l"],
+            ["es9l", "esm6ll", "esm6l"],
+            ["es10l", "es12l", "es9l"],
+
+            //inner tip
+            ["es10l","es11l","es12l"],
+            {"group":""},
+    ],
+},
+"semi_exhauststacks_c": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Sideblaster Exhaust Stacks",
+        "value":1000,
+    },
+    "slotType" : "semi_exhauststacks",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_heatshields","semi_heatshields_stock", "Heat Shields"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_c_R", ["semi_exhauststack_R"]],
+         ["semi_exhauststack_c_L", ["semi_exhauststack_L"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":9,
+        "$+highShelfGain":-4,
+        "$+eqFundamentalGain":2,
+    }
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--RIGHT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_R"},
+         //top tip triangle
+         ["es1r",-1.20, -0.88, 3.23, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.2,"exhaustAudioGainChange":-3}],
+         ["es2r",-1.20, -0.8, 3.3],
+         ["es3r",-1.20, -0.92, 3.3],
+
+         ["es5r",-1.01, -0.99, 3.13],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1r",-0.98, -0.89, 2.48],
+         ["esm1rr",-1.17, -0.89, 2.48],
+         ["esm2r",-0.98, -1.08, 2.51],
+         ["esm2rr",-1.17, -1.08, 2.51],
+
+         ["esm3r",-0.98, -0.89, 1.78],
+         ["esm3rr",-1.17, -0.89, 1.78],
+         ["esm4r",-0.98, -1.08, 1.78],
+         ["esm4rr",-1.17, -1.08, 1.78],
+
+         ["esm5r",-0.98, -0.89, 1.0],
+         ["esm5rr",-1.17, -0.89, 1.025],
+         ["esm6r",-0.98, -1.08, 1.0],
+         ["esm6rr",-1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7r",-0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8r",-1.0, -0.93, 0.81],
+         ["es9r",-1.0, -1.01, 0.81],
+
+         ["es10r",-0.50, -0.97, 0.49],
+         ["es11r",-0.52, -0.93, 0.40],
+         ["es12r",-0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_R_attach"},
+         ["esa1r",-0.80,-0.84, 2.39],
+         ["esa2r",-0.80,-0.84, 1.17],
+         {"group":""},
+
+         {"selfCollision":true},
+         {"collision":true},
+         //--LEFT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_L"},
+         //top tip triangle
+         ["es1l", 1.20, -0.88, 3.23, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.2,"exhaustAudioGainChange":-3}],
+         ["es2l", 1.20, -0.8, 3.3],
+         ["es3l", 1.20, -0.92, 3.3],
+
+         ["es5l", 1.01, -0.99, 3.13],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1l", 0.98, -0.89, 2.48],
+         ["esm1ll", 1.17, -0.89, 2.48],
+         ["esm2l", 0.98, -1.08, 2.51],
+         ["esm2ll", 1.17, -1.08, 2.51],
+
+         ["esm3l", 0.98, -0.89, 1.78],
+         ["esm3ll", 1.17, -0.89, 1.78],
+         ["esm4l", 0.98, -1.08, 1.78],
+         ["esm4ll", 1.17, -1.08, 1.78],
+
+         ["esm5l", 0.98, -0.89, 1.0],
+         ["esm5ll", 1.17, -0.89, 1.025],
+         ["esm6l", 0.98, -1.08, 1.0],
+         ["esm6ll", 1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7l", 0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8l", 1.0, -0.93, 0.81],
+         ["es9l", 1.0, -1.01, 0.81],
+
+         ["es10l", 0.50, -0.97, 0.49],
+         ["es11l", 0.52, -0.93, 0.40],
+         ["es12l", 0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_L_attach"},
+         ["esa1l", 0.80,-0.84, 2.39],
+         ["esa2l", 0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RIGHT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          //triangle perimeter circumference whatevers
+          ["es1r","es2r"],
+          ["es2r","es3r"],
+          ["es3r","es1r"],
+
+          //["es4r","es5r"],
+          //["es5r","es6r"],
+          //["es6r","es4r"],
+
+          //["es7r","es8r"],
+          ["es8r","es9r"],
+          //["es9r","es7r"],
+
+          ["es10r","es11r"],
+          ["es11r","es12r"],
+          ["es12r","es10r"],
+
+          //muffler perimeter square
+          ["esm1r","esm2r"],
+          ["esm2r","esm2rr"],
+          ["esm2rr","esm1rr"],
+          ["esm1rr","esm1r"],
+
+          ["esm3r","esm4r"],
+          ["esm4r","esm4rr"],
+          ["esm4rr","esm3rr"],
+          ["esm3rr","esm3r"],
+
+          ["esm5r","esm6r"],
+          ["esm6r","esm6rr"],
+          ["esm6rr","esm5rr"],
+          ["esm5rr","esm5r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["es1r","es5r", {"isExhaust":"mainEngine"}],
+          //["es1r","es6r"],
+          //["es2r","es4r"],
+          //["es3r","es4r"],
+
+          //["es7r","es11r"],
+          //["es7r","es12r"],
+          ["es8r","es10r"],
+          ["es9r","es10r"],
+
+          //muffler main shape lengthwise
+          ["esm1r","esm3r", {"isExhaust":"mainEngine"}],
+          ["esm1rr","esm3rr"],
+          ["esm2r","esm4r"],
+          ["esm2rr","esm4rr"],
+          ["esm3r","esm5r", {"isExhaust":"mainEngine"}],
+          ["esm3rr","esm5rr"],
+          ["esm4r","esm6r"],
+          ["esm4rr","esm6rr"],
+
+          //muffler to pipe
+          //upper
+          //["es4r","esm1rr"],
+          //["es6r","esm2rr"],
+          //["es4r","esm1r"],
+          ["es5r","esm1r", {"isExhaust":"mainEngine"}],
+          ["es5r","esm2r"],
+
+          //lower
+          //["esm5rr","es7r"],
+          //["esm6rr","es7r"],
+
+          ["esm5r","es8r"],
+          ["esm6r","es9r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1r","es4r"],
+          //["es2r","es6r"],
+          ["es3r","es5r"],
+
+          //["es4r","esm2rr"],
+          //["es6r","esm1rr"],
+          //["es6r","esm1r"],
+          ["es5r","esm2rr"],
+          //
+          ["esm5rr","es8r"],
+          ["esm6rr","es9r"],
+          ["esm5rr","es9r"],
+          ["esm6rr","es8r"],
+
+          //["esm5r","es7r"],
+          //["esm6r","es7r"],
+
+          //["es7r","es10r"],
+          ["es8r","es11r"],
+          ["es8r","es12r"],
+          ["es9r","es11r"],
+          ["es9r","es12r"],
+
+          //muffler
+          ["esm1r","esm4r"],
+          ["esm2r","esm3r"],
+          ["esm1rr","esm4rr"],
+          ["esm2rr","esm3rr"],
+
+          ["esm3r","esm6r"],
+          ["esm4r","esm5r"],
+          ["esm3rr","esm6rr"],
+          ["esm4rr","esm5rr"],
+
+          ["esm1rr","esm3r"],
+          ["esm1r","esm3rr"],
+          ["esm2rr","esm4r"],
+          ["esm2r","esm4rr"],
+
+          ["esm3rr","esm5r"],
+          ["esm3r","esm5rr"],
+          ["esm4rr","esm6r"],
+          ["esm4r","esm6rr"],
+
+          //top of muffler
+          ["esm1rr","esm2r"],
+          ["esm2rr","esm1r"],
+          //middle
+          ["esm3rr","esm4r"],
+          ["esm4rr","esm3r"],
+          //bottom of muffler
+          ["esm5rr","esm6r"],
+          ["esm6rr","esm5r"],
+
+          //rigids
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          ["es1r","esm1r"],
+          ["es1r","esm2r"],
+          ["es1r","esm1rr"],
+          ["es1r","esm2rr"],
+
+          ["es2r","esm1r"],
+          ["es2r","esm2r"],
+          ["es2r","esm1rr"],
+          ["es2r","esm2rr"],
+
+          ["es3r","esm1r"],
+          ["es3r","esm2r"],
+          ["es3r","esm1rr"],
+          ["es3r","esm2rr"],
+
+          ["es10r","esm5r", {"isExhaust":"mainEngine"}],
+          ["es10r","esm6r"],
+          ["es10r","esm5rr"],
+          ["es10r","esm6rr"],
+
+          ["es11r","esm5r"],
+          ["es11r","esm6r"],
+          ["es11r","esm5rr"],
+          ["es11r","esm6rr"],
+
+          ["es12r","esm5r"],
+          ["es12r","esm6r"],
+          ["es12r","esm5rr"],
+          ["es12r","esm6rr"],
+
+          ["esm3r", "es10r"],
+          ["esm4r", "es10r"],
+
+          ["es3r", "esm3rr"],
+          ["es2r", "esm3rr"],
+
+          //muffler
+          ["esm1r","esm5r"],
+          ["esm2r","esm6r"],
+          ["esm1rr","esm5rr"],
+          ["esm2rr","esm6rr"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1r","esa1r"],
+          ["esm1rr","esa1r"],
+          ["esm2r","esa1r"],
+          ["esm2rr","esa1r"],
+
+          ["esm3r","esa1r"],
+          ["esm3rr","esa1r"],
+          ["esm4r","esa1r"],
+          ["esm4rr","esa1r"],
+
+          ["es5r","esa1r"],
+
+          //lower
+          ["esm5r","esa2r"],
+          ["esm5rr","esa2r"],
+          ["esm6r","esa2r"],
+          ["esm6rr","esa2r"],
+
+          ["esm3r","esa2r"],
+          ["esm3rr","esa2r"],
+          ["esm4r","esa2r"],
+          ["esm4rr","esa2r"],
+
+          //["es7r","esa2r"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_R"},
+          {"optional":true},
+          ["esa1r","dc15rrr"],
+          ["esa1r","dc15rr"],
+          ["esa1r","dc13rr"],
+
+          ["esm2r","dc15rrr"],
+          ["esm2r","dc15rr"],
+          ["esm2r","dc13rr"],
+          {"breakGroup":"exhauststack_b_R"},
+          ["esa2r","dc9rr"],
+          ["esa2r","dc10rr"],
+          ["esa2r","dc11rr"],
+          ["esa2r","dc13rr"],
+
+          ["esm6r","dc9rr"],
+          ["esm6r","dc10rr"],
+          ["esm6r","dc11rr"],
+          ["esm6r","dc13rr"],
+          ["es10r","dc11rr"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_R"},
+          ["es10r","ex1r", {"isExhaust":"mainEngine"}],
+          ["es11r","ex1r"],
+          ["es12r","ex1r"],
+
+          ["es8r","ex1l"],
+          ["es9r","ex1l"],
+
+          ["es9r","en2r"],
+          //["es7r","en2r"],
+          {"breakGroup":""},
+
+          //--LEFT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          //triangle perimeter circumference whatevers
+          ["es1l","es2l"],
+          ["es2l","es3l"],
+          ["es3l","es1l"],
+
+          //["es4l","es5l"],
+          //["es5l","es6l"],
+          //["es6l","es4l"],
+
+          //["es7l","es8l"],
+          ["es8l","es9l"],
+          //["es9l","es7l"],
+
+          ["es10l","es11l"],
+          ["es11l","es12l"],
+          ["es12l","es10l"],
+
+          //muffler perimeter square
+          ["esm1l","esm2l"],
+          ["esm2l","esm2ll"],
+          ["esm2ll","esm1ll"],
+          ["esm1ll","esm1l"],
+
+          ["esm3l","esm4l"],
+          ["esm4l","esm4ll"],
+          ["esm4ll","esm3ll"],
+          ["esm3ll","esm3l"],
+
+          ["esm5l","esm6l"],
+          ["esm6l","esm6ll"],
+          ["esm6ll","esm5ll"],
+          ["esm5ll","esm5l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["es1l","es5l", {"isExhaust":"mainEngine"}],
+          //["es1l","es6l"],
+          //["es2l","es4l"],
+          //["es3l","es4l"],
+
+          //["es7l","es11l"],
+          //["es7l","es12l"],
+          ["es8l","es10l"],
+          ["es9l","es10l"],
+
+          //muffler main shape lengthwise
+          ["esm1l","esm3l", {"isExhaust":"mainEngine"}],
+          ["esm1ll","esm3ll"],
+          ["esm2l","esm4l"],
+          ["esm2ll","esm4ll"],
+          ["esm3l","esm5l", {"isExhaust":"mainEngine"}],
+          ["esm3ll","esm5ll"],
+          ["esm4l","esm6l"],
+          ["esm4ll","esm6ll"],
+
+          //muffler to pipe
+          //upper
+          //["es4l","esm1ll"],
+          //["es6l","esm2ll"],
+          //["es4l","esm1l"],
+          ["es5l","esm1l", {"isExhaust":"mainEngine"}],
+          ["es5l","esm2l"],
+
+          //lower
+          //["esm5ll","es7l"],
+          //["esm6ll","es7l"],
+
+          ["esm5l","es8l"],
+          ["esm6l","es9l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1l","es4l"],
+          //["es2l","es6l"],
+          ["es3l","es5l"],
+
+          //["es4l","esm2ll"],
+          //["es6l","esm1ll"],
+          //["es6l","esm1l"],
+          ["es5l","esm2ll"],
+          //
+          ["esm5ll","es8l"],
+          ["esm6ll","es9l"],
+          ["esm5ll","es9l"],
+          ["esm6ll","es8l"],
+
+          //["esm5l","es7l"],
+          //["esm6l","es7l"],
+
+          //["es7l","es10l"],
+          ["es8l","es11l"],
+          ["es8l","es12l"],
+          ["es9l","es11l"],
+          ["es9l","es12l"],
+
+          //muffler
+          ["esm1l","esm4l"],
+          ["esm2l","esm3l"],
+          ["esm1ll","esm4ll"],
+          ["esm2ll","esm3ll"],
+
+          ["esm3l","esm6l"],
+          ["esm4l","esm5l"],
+          ["esm3ll","esm6ll"],
+          ["esm4ll","esm5ll"],
+
+          ["esm1ll","esm3l"],
+          ["esm1l","esm3ll"],
+          ["esm2ll","esm4l"],
+          ["esm2l","esm4ll"],
+
+          ["esm3ll","esm5l"],
+          ["esm3l","esm5ll"],
+          ["esm4ll","esm6l"],
+          ["esm4l","esm6ll"],
+
+          //top of muffler
+          ["esm1ll","esm2l"],
+          ["esm2ll","esm1l"],
+          //middle
+          ["esm3ll","esm4l"],
+          ["esm4ll","esm3l"],
+          //bottom of muffler
+          ["esm5ll","esm6l"],
+          ["esm6ll","esm5l"],
+          //rigids
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          ["es1l","esm1l"],
+          ["es1l","esm2l"],
+          ["es1l","esm1ll"],
+          ["es1l","esm2ll"],
+
+          ["es2l","esm1l"],
+          ["es2l","esm2l"],
+          ["es2l","esm1ll"],
+          ["es2l","esm2ll"],
+
+          ["es3l","esm1l"],
+          ["es3l","esm2l"],
+          ["es3l","esm1ll"],
+          ["es3l","esm2ll"],
+
+          ["es10l","esm5l", {"isExhaust":"mainEngine"}],
+          ["es10l","esm6l"],
+          ["es10l","esm5ll"],
+          ["es10l","esm6ll"],
+
+          ["es11l","esm5l"],
+          ["es11l","esm6l"],
+          ["es11l","esm5ll"],
+          ["es11l","esm6ll"],
+
+          ["es12l","esm5l"],
+          ["es12l","esm6l"],
+          ["es12l","esm5ll"],
+          ["es12l","esm6ll"],
+
+          ["esm3l", "es10l"],
+          ["esm4l", "es10l"],
+
+          ["es3l", "esm3ll"],
+          ["es2l", "esm3ll"],
+
+          //muffler
+          ["esm1l","esm5l"],
+          ["esm2l","esm6l"],
+          ["esm1ll","esm5ll"],
+          ["esm2ll","esm6ll"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1l","esa1l"],
+          ["esm1ll","esa1l"],
+          ["esm2l","esa1l"],
+          ["esm2ll","esa1l"],
+
+          ["esm3l","esa1l"],
+          ["esm3ll","esa1l"],
+          ["esm4l","esa1l"],
+          ["esm4ll","esa1l"],
+
+          ["es5l","esa1l"],
+
+          //lower
+          ["esm5l","esa2l"],
+          ["esm5ll","esa2l"],
+          ["esm6l","esa2l"],
+          ["esm6ll","esa2l"],
+
+          ["esm3l","esa2l"],
+          ["esm3ll","esa2l"],
+          ["esm4l","esa2l"],
+          ["esm4ll","esa2l"],
+
+          //["es7l","esa2l"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_L"},
+          {"optional":true},
+          ["esa1l","dc15lll"],
+          ["esa1l","dc15ll"],
+          ["esa1l","dc13ll"],
+
+          ["esm2l","dc15lll"],
+          ["esm2l","dc15ll"],
+          ["esm2l","dc13ll"],
+          {"breakGroup":"exhauststack_b_L"},
+          ["esa2l","dc9ll"],
+          ["esa2l","dc10ll"],
+          ["esa2l","dc11ll"],
+          ["esa2l","dc13ll"],
+
+          ["esm6l","dc9ll"],
+          ["esm6l","dc10ll"],
+          ["esm6l","dc11ll"],
+          ["esm6l","dc13ll"],
+
+          ["es10l","dc11ll"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_L"},
+          ["es10l","ex1l", {"isExhaust":"mainEngine"}],
+          ["es11l","ex1l"],
+          ["es12l","ex1l"],
+
+          ["es8l","ex1r"],
+          ["es9l","ex1r"],
+
+          ["es9l","en2r"],
+          //["es7l","en2r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_exhauststack_R"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["es2r", "esm1rr", "es3r"],
+            ["esm1r", "esm1rr", "es5r"],
+            ["es2r", "es5r", "esm1rr"],
+            ["esm2r", "esm1r", "es5r"],
+            ["esm2rr", "esm2r", "es5r"],
+            ["es3r", "esm2rr", "es5r"],
+            ["esm1rr", "esm2rr", "es3r"],
+            ["es3r", "es5r", "es2r"],
+
+            //muffler
+            ["esm1rr","esm3rr","esm4rr"],
+            ["esm1rr","esm4rr","esm2rr"],
+            ["esm3rr","esm5rr","esm6rr"],
+            ["esm3rr","esm6rr","esm4rr"],
+
+            ["esm1r","esm4r","esm3r"],
+            ["esm1r","esm2r","esm4r"],
+            ["esm3r","esm6r","esm5r"],
+            ["esm3r","esm4r","esm6r"],
+
+            ["esm2rr","esm4rr","esm4r"],
+            ["esm2rr","esm4r","esm2r"],
+            ["esm4rr","esm6rr","esm6r"],
+            ["esm4rr","esm6r","esm4r"],
+
+            ["esm1rr","esm3r","esm3rr"],
+            ["esm1rr","esm1r","esm3r"],
+            ["esm3rr","esm5r","esm5rr"],
+            ["esm3rr","esm3r","esm5r"],
+
+            //lower pipe
+            ["es9r", "esm6rr", "es8r"],
+            ["esm5rr", "es8r", "esm6rr"],
+            ["es12r", "es9r", "es11r"],
+            ["es8r", "es11r", "es9r"],
+            ["es8r", "esm5rr", "esm5r"],
+            ["es11r", "es8r", "es10r"],
+            ["esm5r", "es10r", "es8r"],
+            ["es10r", "esm5r", "esm6r"],
+            ["es9r", "es10r", "esm6r"],
+            ["esm6rr", "es9r", "esm6r"],
+            ["es12r", "es10r", "es9r"],
+
+            //inner tip
+            ["es10r","es12r","es11r"],
+
+            {"group":""},
+
+            //LEFT EXHAUST PIPE
+            {"group":"semi_exhauststack_L"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["esm1ll", "es2l", "es3l"],
+            ["esm1ll", "esm1l", "es5l"],
+            ["es5l", "es2l", "esm1ll"],
+            ["esm1l", "esm2l", "es5l"],
+            ["esm2l", "esm2ll", "es5l"],
+            ["esm2ll", "es3l", "es5l"],
+            ["esm2ll", "esm1ll", "es3l"],
+            ["es5l", "es3l", "es2l"],
+
+            //muffler
+            ["esm1ll","esm4ll","esm3ll"],
+            ["esm1ll","esm2ll","esm4ll"],
+            ["esm3ll","esm6ll","esm5ll"],
+            ["esm3ll","esm4ll","esm6ll"],
+
+            ["esm1l","esm3l","esm4l"],
+            ["esm1l","esm4l","esm2l"],
+            ["esm3l","esm5l","esm6l"],
+            ["esm3l","esm6l","esm4l"],
+
+            ["esm2ll","esm4l","esm4ll"],
+            ["esm2ll","esm2l","esm4l"],
+            ["esm4ll","esm6l","esm6ll"],
+            ["esm4ll","esm4l","esm6l"],
+
+            ["esm1ll","esm3ll","esm3l"],
+            ["esm1ll","esm3l","esm1l"],
+            ["esm3ll","esm5ll","esm5l"],
+            ["esm3ll","esm5l","esm3l"],
+
+            //lower pipe
+            ["esm6ll", "es9l", "es8l"],
+            ["es8l", "esm5ll", "esm6ll"],
+            ["es9l", "es12l", "es11l"],
+            ["es11l", "es8l", "es9l"],
+            ["esm5ll", "es8l", "esm5l"],
+            ["es8l", "es11l", "es10l"],
+            ["es10l", "esm5l", "es8l"],
+            ["esm5l", "es10l", "esm6l"],
+            ["es10l", "es9l", "esm6l"],
+            ["es9l", "esm6ll", "esm6l"],
+            ["es10l", "es12l", "es9l"],
+
+            //inner tip
+            ["es10l","es11l","es12l"],
+            {"group":""},
+    ],
+},
+"semi_exhauststacks_d": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Flapmaster Exhaust Stacks",
+        "value":1200,
+    },
+    "slotType" : "semi_exhauststacks",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_heatshields","semi_heatshields_stock", "Heat Shields"],
+    ],
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_d_R", ["semi_exhauststack_R"]],
+         ["semi_exhauststack_d_L", ["semi_exhauststack_L"]],
+         ["semi_exhauststack_d_cover_R", ["semi_exhauststack_flapper_R"]],
+         ["semi_exhauststack_d_cover_L", ["semi_exhauststack_flapper_L"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":9,
+        "$+highShelfGain":-10,
+        "$+eqFundamentalGain":2,
+    }
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--RIGHT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_R"},
+         //top tip
+         ["es5r",-1.05, -0.97, 2.48, {"collision":false,"selfCollision":false}],
+         ["es6r",-1.05, -0.95, 3.1, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.1,"exhaustAudioGainChange":-4}],
+
+         ["es1r", -0.98, -0.89, 3.03],
+         ["es2r", -1.14, -0.89, 3.03],
+         {"group":["semi_exhauststack_R","semi_exhauststack_flapper_R"]},
+         ["es3r", -0.98, -1.07, 3.05],
+         ["es4r", -1.14, -1.07, 3.05],
+
+         //flapper
+         {"nodeWeight":0.2},
+         {"group":"semi_exhauststack_flapper_R"},
+         ["et1r",-1.05, -0.92, 3.05],
+         ["et2r",-1.05, -1.08, 3.12, {"collision":false,"selfCollision":false}],
+
+         {"nodeWeight":3},
+         //muffler
+         {"group":"semi_exhauststack_R"},
+         ["esm1r", -0.98, -0.89, 2.48],
+         ["esm1rr",-1.17, -0.89, 2.48],
+         ["esm2r", -0.98, -1.08, 2.48],
+         ["esm2rr",-1.17, -1.08, 2.48],
+
+         ["esm3r", -0.98, -0.89, 1.78],
+         ["esm3rr",-1.17, -0.89, 1.78],
+         ["esm4r", -0.98, -1.08, 1.78],
+         ["esm4rr",-1.17, -1.08, 1.78],
+
+         ["esm5r", -0.98, -0.89, 1.0],
+         ["esm5rr",-1.17, -0.89, 1.025],
+         ["esm6r", -0.98, -1.08, 1.0],
+         ["esm6rr",-1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7r",-0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8r",-1.0, -0.93, 0.81],
+         ["es9r",-1.0, -1.01, 0.81],
+
+         ["es10r",-0.50, -0.97, 0.49],
+         ["es11r",-0.52, -0.93, 0.40],
+         ["es12r",-0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_R_attach"},
+         ["esa1r",-0.80,-0.84, 2.39],
+         ["esa2r",-0.80,-0.84, 1.17],
+         {"group":""},
+
+         {"selfCollision":true},
+         {"collision":true},
+         //--LEFT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_L"},
+         //top tip
+         ["es5l", 1.05, -0.97, 2.48, {"collision":false,"selfCollision":false}],
+         ["es6l", 1.05, -0.95, 3.1, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.1,"exhaustAudioGainChange":-4}],
+
+         ["es1l",  0.98, -0.89, 3.03],
+         ["es2l",  1.14, -0.89, 3.03],
+         {"group":["semi_exhauststack_L","semi_exhauststack_flapper_L"]},
+         ["es3l",  0.98, -1.07, 3.05],
+         ["es4l",  1.14, -1.07, 3.05],
+
+         //flapper
+         {"nodeWeight":0.2},
+         {"group":"semi_exhauststack_flapper_L"},
+         ["et1l", 1.05, -0.92, 3.05],
+         ["et2l", 1.05, -1.08, 3.12, {"collision":false,"selfCollision":false}],
+
+         {"nodeWeight":3},
+         //muffler
+         {"group":"semi_exhauststack_L"},
+         ["esm1l",  0.98, -0.89, 2.48],
+         ["esm1ll", 1.17, -0.89, 2.48],
+         ["esm2l",  0.98, -1.08, 2.48],
+         ["esm2ll", 1.17, -1.08, 2.48],
+
+         ["esm3l",  0.98, -0.89, 1.78],
+         ["esm3ll", 1.17, -0.89, 1.78],
+         ["esm4l",  0.98, -1.08, 1.78],
+         ["esm4ll", 1.17, -1.08, 1.78],
+
+         ["esm5l",  0.98, -0.89, 1.0],
+         ["esm5ll", 1.17, -0.89, 1.025],
+         ["esm6l",  0.98, -1.08, 1.0],
+         ["esm6ll", 1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7l", 0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8l", 1.0, -0.93, 0.81],
+         ["es9l", 1.0, -1.01, 0.81],
+
+         ["es10l", 0.50, -0.97, 0.49],
+         ["es11l", 0.52, -0.93, 0.40],
+         ["es12l", 0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_L_attach"},
+         ["esa1l", 0.80,-0.84, 2.39],
+         ["esa2l", 0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "hydros": [
+        ["id1:","id2:"],
+        {"beamDeform":175000,"beamStrength":"FLT_MAX"},
+        {"beamSpring":150,"beamDamp":1},
+        {"beamPrecompression":1.02},
+        {"breakGroupType":1},
+        {"breakGroup":"exhaust_stack_hydros"},
+        ["et1r", "es5r", {"inputSource":"exhaustFlow","inLimit":0,"outLimit":1.25,"inRate":20,"outRate":20,"inputFactor":1.0}],
+        ["et1l", "es5l", {"inputSource":"exhaustFlow","inLimit":0,"outLimit":1.25,"inRate":20,"outRate":20,"inputFactor":1.0}],
+        {"beamPrecompression":1.0},
+        {"breakGroupType":0},
+        {"breakGroup":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RIGHT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["es8r","es9r"],
+
+          ["es10r","es11r"],
+          ["es11r","es12r"],
+          ["es12r","es10r"],
+
+          ["esm1r", "es1r"],
+          ["esm1rr", "es2r"],
+          ["esm2r", "es3r"],
+          ["esm2rr", "es4r"],
+          ["es1r", "es2r"],
+          ["es1r", "es3r"],
+          ["es3r", "es4r"],
+          ["es4r", "es2r"],
+
+          ["es1r", "es4r"],
+          ["es2r", "es3r"],
+
+          //muffler perimeter square
+          ["esm1r","esm2r"],
+          ["esm2r","esm2rr"],
+          ["esm2rr","esm1rr"],
+          ["esm1rr","esm1r"],
+
+          ["esm3r","esm4r"],
+          ["esm4r","esm4rr"],
+          ["esm4rr","esm3rr"],
+          ["esm3rr","esm3r"],
+
+          ["esm5r","esm6r"],
+          ["esm6r","esm6rr"],
+          ["esm6rr","esm5rr"],
+          ["esm5rr","esm5r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          //["es1r","es5r", {"isExhaust":"mainEngine"}],
+          //["es1r","es6r"],
+          //["es2r","es4r"],
+          //["es3r","es4r"],
+
+          //["es7r","es11r"],
+          //["es7r","es12r"],
+          ["es8r","es10r"],
+          ["es9r","es10r"],
+
+          //muffler main shape lengthwise
+          ["esm1r","esm3r", {"isExhaust":"mainEngine"}],
+          ["esm1rr","esm3rr"],
+          ["esm2r","esm4r"],
+          ["esm2rr","esm4rr"],
+          ["esm3r","esm5r", {"isExhaust":"mainEngine"}],
+          ["esm3rr","esm5rr"],
+          ["esm4r","esm6r"],
+          ["esm4rr","esm6rr"],
+
+          //muffler to pipe
+          //upper
+          //["es4r","esm1rr"],
+          //["es6r","esm2rr"],
+          //["es4r","esm1r"],
+          //["es5r","esm1r", {"isExhaust":"mainEngine"}],
+          //["es5r","esm2r"],
+
+          //lower
+          //["esm5rr","es7r"],
+          //["esm6rr","es7r"],
+
+          ["esm5r","es8r"],
+          ["esm6r","es9r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1r","es4r"],
+          //["es2r","es6r"],
+          //["es3r","es5r"],
+
+          //["es4r","esm2rr"],
+          //["es6r","esm1rr"],
+          //["es6r","esm1r"],
+          //["es5r","esm2rr"],
+
+          ["es1r", "esm1rr"],
+          ["es2r", "esm1r"],
+          ["es3r", "esm2rr"],
+          ["es4r", "esm2r"],
+          ["es2r", "esm2rr"],
+          ["es4r", "esm1rr"],
+          ["es1r", "esm2r"],
+          ["es3r", "esm1r"],
+
+          //
+          ["esm5rr","es8r"],
+          ["esm6rr","es9r"],
+          ["esm5rr","es9r"],
+          ["esm6rr","es8r"],
+
+          //["esm5r","es7r"],
+          //["esm6r","es7r"],
+
+          //["es7r","es10r"],
+          ["es8r","es11r"],
+          ["es8r","es12r"],
+          ["es9r","es11r"],
+          ["es9r","es12r"],
+
+          //muffler
+          ["esm1r","esm4r"],
+          ["esm2r","esm3r"],
+          ["esm1rr","esm4rr"],
+          ["esm2rr","esm3rr"],
+
+          ["esm3r","esm6r"],
+          ["esm4r","esm5r"],
+          ["esm3rr","esm6rr"],
+          ["esm4rr","esm5rr"],
+
+          ["esm1rr","esm3r"],
+          ["esm1r","esm3rr"],
+          ["esm2rr","esm4r"],
+          ["esm2r","esm4rr"],
+
+          ["esm3rr","esm5r"],
+          ["esm3r","esm5rr"],
+          ["esm4rr","esm6r"],
+          ["esm4r","esm6rr"],
+
+          //top of muffler
+          ["esm1rr","esm2r"],
+          ["esm2rr","esm1r"],
+          //middle
+          ["esm3rr","esm4r"],
+          ["esm4rr","esm3r"],
+          //bottom of muffler
+          ["esm5rr","esm6r"],
+          ["esm6rr","esm5r"],
+
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          //exhaust tip nodes
+          ["es6r", "es1r"],
+          ["es6r", "es3r"],
+          ["es6r", "es4r"],
+          ["es6r", "es2r"],
+          ["es5r", "esm2r"],
+          ["es5r", "esm1r", {"isExhaust":"mainEngine"}],
+          ["es5r", "esm1rr"],
+          ["es5r", "esm2rr"],
+          ["es5r", "es3r"],
+          ["es5r", "es1r"],
+          ["es5r", "es2r"],
+          ["es5r", "es4r"],
+          ["es6r", "esm1rr"],
+          ["es6r", "esm1r"],
+          ["es6r", "esm2r"],
+          ["es6r", "esm2rr"],
+          ["es6r", "es5r", {"isExhaust":"mainEngine"}],
+
+          //rigids
+          ["es2r", "esm3rr"],
+          ["es1r", "esm3r"],
+          ["es3r", "esm4r"],
+          ["es4r", "esm4rr"],
+
+          //["es1r","esm1r"],
+          //["es1r","esm2r"],
+          //["es1r","esm1rr"],
+          //["es1r","esm2rr"],
+          //
+          //["es2r","esm1r"],
+          //["es2r","esm2r"],
+          //["es2r","esm1rr"],
+          //["es2r","esm2rr"],
+          //
+          //["es3r","esm1r"],
+          //["es3r","esm2r"],
+          //["es3r","esm1rr"],
+          //["es3r","esm2rr"],
+
+          ["es10r","esm5r", {"isExhaust":"mainEngine"}],
+          ["es10r","esm6r"],
+          ["es10r","esm5rr"],
+          ["es10r","esm6rr"],
+
+          ["es11r","esm5r"],
+          ["es11r","esm6r"],
+          ["es11r","esm5rr"],
+          ["es11r","esm6rr"],
+
+          ["es12r","esm5r"],
+          ["es12r","esm6r"],
+          ["es12r","esm5rr"],
+          ["es12r","esm6rr"],
+
+          ["esm3r", "es10r"],
+          ["esm4r", "es10r"],
+
+          //["es3r", "esm3rr"],
+          //["es2r", "esm3rr"],
+
+          //muffler
+          ["esm1r","esm5r"],
+          ["esm2r","esm6r"],
+          ["esm1rr","esm5rr"],
+          ["esm2rr","esm6rr"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1r","esa1r"],
+          ["esm1rr","esa1r"],
+          ["esm2r","esa1r"],
+          ["esm2rr","esa1r"],
+
+          ["esm3r","esa1r"],
+          ["esm3rr","esa1r"],
+          ["esm4r","esa1r"],
+          ["esm4rr","esa1r"],
+
+          //["es5r","esa1r"],
+
+          //lower
+          ["esm5r","esa2r"],
+          ["esm5rr","esa2r"],
+          ["esm6r","esa2r"],
+          ["esm6rr","esa2r"],
+
+          ["esm3r","esa2r"],
+          ["esm3rr","esa2r"],
+          ["esm4r","esa2r"],
+          ["esm4rr","esa2r"],
+
+          //["es7r","esa2r"],
+
+          //flapper
+          {"beamSpring":151000,"beamDamp":25},
+          ["es4r","et1r"],
+          ["es3r","et1r"],
+
+          ["es4r","et2r"],
+          ["es3r","et2r"],
+          ["et1r","et2r"],
+          //damper
+          {"beamSpring":0,"beamDamp":0.5},
+          ["et1r","es2r"],
+          ["et1r","es1r"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_R"},
+          {"optional":true},
+          ["esa1r","dc15rrr"],
+          ["esa1r","dc15rr"],
+          ["esa1r","dc13rr"],
+
+          ["esm2r","dc15rrr"],
+          ["esm2r","dc15rr"],
+          ["esm2r","dc13rr"],
+          {"breakGroup":"exhauststack_b_R"},
+          ["esa2r","dc9rr"],
+          ["esa2r","dc10rr"],
+          ["esa2r","dc11rr"],
+          ["esa2r","dc13rr"],
+
+          ["esm6r","dc9rr"],
+          ["esm6r","dc10rr"],
+          ["esm6r","dc11rr"],
+          ["esm6r","dc13rr"],
+          ["es10r","dc11rr"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_R"},
+          ["es10r","ex1r", {"isExhaust":"mainEngine"}],
+          ["es11r","ex1r"],
+          ["es12r","ex1r"],
+
+          ["es8r","ex1l"],
+          ["es9r","ex1l"],
+
+          ["es9r","en2r"],
+          //["es7r","en2r"],
+          {"breakGroup":""},
+
+          //support beams
+          {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":3},
+          {"beamDeform":25000,"beamStrength":85000},
+          {"beamSpring":201000,"beamDamp":25},
+          {"beamPrecompression":0.94},
+          ["et2r", "esm1rr"],
+          ["et2r", "esm1r"],
+          {"beamPrecompression":0.92},
+          ["et2r", "esm2rr"],
+          ["et2r", "esm2r"],
+          {"beamPrecompression":1},
+
+
+          //--LEFT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          ["es8l","es9l"],
+
+          ["es10l","es11l"],
+          ["es11l","es12l"],
+          ["es12l","es10l"],
+
+          ["esm1l", "es1l"],
+          ["esm1ll", "es2l"],
+          ["esm2l", "es3l"],
+          ["esm2ll", "es4l"],
+          ["es1l", "es2l"],
+          ["es1l", "es3l"],
+          ["es3l", "es4l"],
+          ["es4l", "es2l"],
+
+          ["es1l", "es4l"],
+          ["es2l", "es3l"],
+
+          //muffler perimeter square
+          ["esm1l","esm2l"],
+          ["esm2l","esm2ll"],
+          ["esm2ll","esm1ll"],
+          ["esm1ll","esm1l"],
+
+          ["esm3l","esm4l"],
+          ["esm4l","esm4ll"],
+          ["esm4ll","esm3ll"],
+          ["esm3ll","esm3l"],
+
+          ["esm5l","esm6l"],
+          ["esm6l","esm6ll"],
+          ["esm6ll","esm5ll"],
+          ["esm5ll","esm5l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          //["es1l","es5l", {"isExhaust":"mainEngine"}],
+          //["es1l","es6l"],
+          //["es2l","es4l"],
+          //["es3l","es4l"],
+
+          //["es7l","es11l"],
+          //["es7l","es12l"],
+          ["es8l","es10l"],
+          ["es9l","es10l"],
+
+          //muffler main shape lengthwise
+          ["esm1l","esm3l", {"isExhaust":"mainEngine"}],
+          ["esm1ll","esm3ll"],
+          ["esm2l","esm4l"],
+          ["esm2ll","esm4ll"],
+          ["esm3l","esm5l", {"isExhaust":"mainEngine"}],
+          ["esm3ll","esm5ll"],
+          ["esm4l","esm6l"],
+          ["esm4ll","esm6ll"],
+
+          //muffler to pipe
+          //upper
+          //["es4l","esm1ll"],
+          //["es6l","esm2ll"],
+          //["es4l","esm1l"],
+          //["es5l","esm1l", {"isExhaust":"mainEngine"}],
+          //["es5l","esm2l"],
+
+          //lower
+          //["esm5ll","es7l"],
+          //["esm6ll","es7l"],
+
+          ["esm5l","es8l"],
+          ["esm6l","es9l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1l","es4l"],
+          //["es2l","es6l"],
+          //["es3l","es5l"],
+
+          //["es4l","esm2ll"],
+          //["es6l","esm1ll"],
+          //["es6l","esm1l"],
+          //["es5l","esm2ll"],
+
+          ["es1l", "esm1ll"],
+          ["es2l", "esm1l"],
+          ["es3l", "esm2ll"],
+          ["es4l", "esm2l"],
+          ["es2l", "esm2ll"],
+          ["es4l", "esm1ll"],
+          ["es1l", "esm2l"],
+          ["es3l", "esm1l"],
+
+          //
+          ["esm5ll","es8l"],
+          ["esm6ll","es9l"],
+          ["esm5ll","es9l"],
+          ["esm6ll","es8l"],
+
+          //["esm5l","es7l"],
+          //["esm6l","es7l"],
+
+          //["es7l","es10l"],
+          ["es8l","es11l"],
+          ["es8l","es12l"],
+          ["es9l","es11l"],
+          ["es9l","es12l"],
+
+          //muffler
+          ["esm1l","esm4l"],
+          ["esm2l","esm3l"],
+          ["esm1ll","esm4ll"],
+          ["esm2ll","esm3ll"],
+
+          ["esm3l","esm6l"],
+          ["esm4l","esm5l"],
+          ["esm3ll","esm6ll"],
+          ["esm4ll","esm5ll"],
+
+          ["esm1ll","esm3l"],
+          ["esm1l","esm3ll"],
+          ["esm2ll","esm4l"],
+          ["esm2l","esm4ll"],
+
+          ["esm3ll","esm5l"],
+          ["esm3l","esm5ll"],
+          ["esm4ll","esm6l"],
+          ["esm4l","esm6ll"],
+
+          //top of muffler
+          ["esm1ll","esm2l"],
+          ["esm2ll","esm1l"],
+          //middle
+          ["esm3ll","esm4l"],
+          ["esm4ll","esm3l"],
+          //bottom of muffler
+          ["esm5ll","esm6l"],
+          ["esm6ll","esm5l"],
+
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          //exhaust tip nodes
+          ["es6l", "es1l"],
+          ["es6l", "es3l"],
+          ["es6l", "es4l"],
+          ["es6l", "es2l"],
+          ["es5l", "esm2l"],
+          ["es5l", "esm1l", {"isExhaust":"mainEngine"}],
+          ["es5l", "esm1ll"],
+          ["es5l", "esm2ll"],
+          ["es5l", "es3l"],
+          ["es5l", "es1l"],
+          ["es5l", "es2l"],
+          ["es5l", "es4l"],
+          ["es6l", "esm1ll"],
+          ["es6l", "esm1l"],
+          ["es6l", "esm2l"],
+          ["es6l", "esm2ll"],
+          ["es6l", "es5l", {"isExhaust":"mainEngine"}],
+
+          //rigids
+          ["es2l", "esm3ll"],
+          ["es1l", "esm3l"],
+          ["es3l", "esm4l"],
+          ["es4l", "esm4ll"],
+
+          //["es1l","esm1l"],
+          //["es1l","esm2l"],
+          //["es1l","esm1ll"],
+          //["es1l","esm2ll"],
+          //
+          //["es2l","esm1l"],
+          //["es2l","esm2l"],
+          //["es2l","esm1ll"],
+          //["es2l","esm2ll"],
+          //
+          //["es3l","esm1l"],
+          //["es3l","esm2l"],
+          //["es3l","esm1ll"],
+          //["es3l","esm2ll"],
+
+          ["es10l","esm5l", {"isExhaust":"mainEngine"}],
+          ["es10l","esm6l"],
+          ["es10l","esm5ll"],
+          ["es10l","esm6ll"],
+
+          ["es11l","esm5l"],
+          ["es11l","esm6l"],
+          ["es11l","esm5ll"],
+          ["es11l","esm6ll"],
+
+          ["es12l","esm5l"],
+          ["es12l","esm6l"],
+          ["es12l","esm5ll"],
+          ["es12l","esm6ll"],
+
+          ["esm3l", "es10l"],
+          ["esm4l", "es10l"],
+
+          //["es3l", "esm3ll"],
+          //["es2l", "esm3ll"],
+
+          //muffler
+          ["esm1l","esm5l"],
+          ["esm2l","esm6l"],
+          ["esm1ll","esm5ll"],
+          ["esm2ll","esm6ll"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1l","esa1l"],
+          ["esm1ll","esa1l"],
+          ["esm2l","esa1l"],
+          ["esm2ll","esa1l"],
+
+          ["esm3l","esa1l"],
+          ["esm3ll","esa1l"],
+          ["esm4l","esa1l"],
+          ["esm4ll","esa1l"],
+
+          //["es5l","esa1l"],
+
+          //lower
+          ["esm5l","esa2l"],
+          ["esm5ll","esa2l"],
+          ["esm6l","esa2l"],
+          ["esm6ll","esa2l"],
+
+          ["esm3l","esa2l"],
+          ["esm3ll","esa2l"],
+          ["esm4l","esa2l"],
+          ["esm4ll","esa2l"],
+
+          //["es7l","esa2l"],
+
+          //flapper
+          {"beamSpring":151000,"beamDamp":25},
+          ["es4l","et1l"],
+          ["es3l","et1l"],
+
+          ["es4l","et2l"],
+          ["es3l","et2l"],
+          ["et1l","et2l"],
+          //damper
+          {"beamSpring":0,"beamDamp":0.5},
+          ["et1l","es2l"],
+          ["et1l","es1l"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_L"},
+          {"optional":true},
+          ["esa1l","dc15lll"],
+          ["esa1l","dc15ll"],
+          ["esa1l","dc13ll"],
+
+          ["esm2l","dc15lll"],
+          ["esm2l","dc15ll"],
+          ["esm2l","dc13ll"],
+          {"breakGroup":"exhauststack_b_L"},
+          ["esa2l","dc9ll"],
+          ["esa2l","dc10ll"],
+          ["esa2l","dc11ll"],
+          ["esa2l","dc13ll"],
+
+          ["esm6l","dc9ll"],
+          ["esm6l","dc10ll"],
+          ["esm6l","dc11ll"],
+          ["esm6l","dc13ll"],
+
+          ["es10l","dc11ll"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_L"},
+          ["es10l","ex1l", {"isExhaust":"mainEngine"}],
+          ["es11l","ex1l"],
+          ["es12l","ex1l"],
+
+          ["es8l","ex1r"],
+          ["es9l","ex1r"],
+
+          ["es9l","en2r"],
+          //["es7l","en2r"],
+          {"breakGroup":""},
+
+          //support beams
+          {"beamPrecompression":1, "beamType":"|SUPPORT", "beamLongBound":3},
+          {"beamDeform":25000,"beamStrength":85000},
+          {"beamSpring":201000,"beamDamp":25},
+          {"beamPrecompression":0.94},
+          ["et2l", "esm1ll"],
+          ["et2l", "esm1l"],
+          {"beamPrecompression":0.92},
+          ["et2l", "esm2ll"],
+          ["et2l", "esm2l"],
+          {"beamPrecompression":1},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_exhauststack_R"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["esm2rr", "es4r", "esm1rr"],
+            ["es2r", "esm1rr", "es4r"],
+            ["esm1rr", "es2r", "esm1r"],
+            ["es1r", "esm1r", "es2r"],
+            ["esm1r", "es1r", "esm2r"],
+            ["es3r", "esm2r", "es1r"],
+            ["es3r", "es4r", "esm2r"],
+            ["esm2rr", "esm2r", "es4r"],
+            ["es2r", "es4r", "es1r"],
+            ["es3r", "es1r", "es4r"],
+
+            //muffler
+            ["esm1rr","esm3rr","esm4rr"],
+            ["esm1rr","esm4rr","esm2rr"],
+            ["esm3rr","esm5rr","esm6rr"],
+            ["esm3rr","esm6rr","esm4rr"],
+
+            ["esm1r","esm4r","esm3r"],
+            ["esm1r","esm2r","esm4r"],
+            ["esm3r","esm6r","esm5r"],
+            ["esm3r","esm4r","esm6r"],
+
+            ["esm2rr","esm4rr","esm4r"],
+            ["esm2rr","esm4r","esm2r"],
+            ["esm4rr","esm6rr","esm6r"],
+            ["esm4rr","esm6r","esm4r"],
+
+            ["esm1rr","esm3r","esm3rr"],
+            ["esm1rr","esm1r","esm3r"],
+            ["esm3rr","esm5r","esm5rr"],
+            ["esm3rr","esm3r","esm5r"],
+
+            //lower pipe
+            ["es9r", "esm6rr", "es8r"],
+            ["esm5rr", "es8r", "esm6rr"],
+            ["es12r", "es9r", "es11r"],
+            ["es8r", "es11r", "es9r"],
+            ["es8r", "esm5rr", "esm5r"],
+            ["es11r", "es8r", "es10r"],
+            ["esm5r", "es10r", "es8r"],
+            ["es10r", "esm5r", "esm6r"],
+            ["es9r", "es10r", "esm6r"],
+            ["esm6rr", "es9r", "esm6r"],
+            ["es12r", "es10r", "es9r"],
+
+            //inner tip
+            ["es10r","es12r","es11r"],
+
+            {"group":""},
+
+            //LEFT EXHAUST PIPE
+            {"group":"semi_exhauststack_L"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["es4l", "esm2ll", "esm1ll"],
+            ["esm1ll", "es2l", "es4l"],
+            ["es2l", "esm1ll", "esm1l"],
+            ["esm1l", "es1l", "es2l"],
+            ["es1l", "esm1l", "esm2l"],
+            ["esm2l", "es3l", "es1l"],
+            ["es4l", "es3l", "esm2l"],
+            ["esm2l", "esm2ll", "es4l"],
+            ["es4l", "es2l", "es1l"],
+            ["es1l", "es3l", "es4l"],
+
+            //muffler
+            ["esm1ll","esm4ll","esm3ll"],
+            ["esm1ll","esm2ll","esm4ll"],
+            ["esm3ll","esm6ll","esm5ll"],
+            ["esm3ll","esm4ll","esm6ll"],
+
+            ["esm1l","esm3l","esm4l"],
+            ["esm1l","esm4l","esm2l"],
+            ["esm3l","esm5l","esm6l"],
+            ["esm3l","esm6l","esm4l"],
+
+            ["esm2ll","esm4l","esm4ll"],
+            ["esm2ll","esm2l","esm4l"],
+            ["esm4ll","esm6l","esm6ll"],
+            ["esm4ll","esm4l","esm6l"],
+
+            ["esm1ll","esm3ll","esm3l"],
+            ["esm1ll","esm3l","esm1l"],
+            ["esm3ll","esm5ll","esm5l"],
+            ["esm3ll","esm5l","esm3l"],
+
+            //lower pipe
+            ["esm6ll", "es9l", "es8l"],
+            ["es8l", "esm5ll", "esm6ll"],
+            ["es9l", "es12l", "es11l"],
+            ["es11l", "es8l", "es9l"],
+            ["esm5ll", "es8l", "esm5l"],
+            ["es8l", "es11l", "es10l"],
+            ["es10l", "esm5l", "es8l"],
+            ["esm5l", "es10l", "esm6l"],
+            ["es10l", "es9l", "esm6l"],
+            ["es9l", "esm6ll", "esm6l"],
+            ["es10l", "es12l", "es9l"],
+
+            //inner tip
+            ["es10l","es11l","es12l"],
+            {"group":""},
+    ],
+},
+"semi_exhauststack_L": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stock Left Exhaust Stack",
+        "value":300,
+    },
+    "slotType" : "semi_exhauststack_L",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_L", ["semi_exhauststack_L"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":8,
+        "$+highShelfGain":-8,
+        "$+eqFundamentalGain":2,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--LEFT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_L"},
+         //top tip triangle
+         ["es1l", 1.20, -0.815, 2.855, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.1,"exhaustAudioGainChange":-4}],
+         ["es2l", 1.16, -0.79, 2.9],
+         ["es3l", 1.22, -0.86, 2.9],
+
+         //["es4l", 1.09, -0.92, 2.78],
+         ["es5l", 1.05, -0.97, 2.88],
+         //["es6l", 1.10, -0.98, 2.83],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1l", 0.98, -0.89, 2.48],
+         ["esm1ll", 1.17, -0.89, 2.48],
+         ["esm2l", 0.98, -1.08, 2.51],
+         ["esm2ll", 1.17, -1.08, 2.51],
+
+         ["esm3l", 0.98, -0.89, 1.78],
+         ["esm3ll", 1.17, -0.89, 1.78],
+         ["esm4l", 0.98, -1.08, 1.78],
+         ["esm4ll", 1.17, -1.08, 1.78],
+
+         ["esm5l", 0.98, -0.89, 1.0],
+         ["esm5ll", 1.17, -0.89, 1.025],
+         ["esm6l", 0.98, -1.08, 1.0],
+         ["esm6ll", 1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7l", 0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8l", 1.0, -0.93, 0.81],
+         ["es9l", 1.0, -1.01, 0.81],
+
+         ["es10l", 0.50, -0.97, 0.49],
+         ["es11l", 0.52, -0.93, 0.40],
+         ["es12l", 0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_L_attach"},
+         ["esa1l", 0.80,-0.84, 2.39],
+         ["esa2l", 0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--LEFT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          //triangle perimeter circumference whatevers
+          ["es1l","es2l"],
+          ["es2l","es3l"],
+          ["es3l","es1l"],
+
+          //["es4l","es5l"],
+          //["es5l","es6l"],
+          //["es6l","es4l"],
+
+          //["es7l","es8l"],
+          ["es8l","es9l"],
+          //["es9l","es7l"],
+
+          ["es10l","es11l"],
+          ["es11l","es12l"],
+          ["es12l","es10l"],
+
+          //muffler perimeter square
+          ["esm1l","esm2l"],
+          ["esm2l","esm2ll"],
+          ["esm2ll","esm1ll"],
+          ["esm1ll","esm1l"],
+
+          ["esm3l","esm4l"],
+          ["esm4l","esm4ll"],
+          ["esm4ll","esm3ll"],
+          ["esm3ll","esm3l"],
+
+          ["esm5l","esm6l"],
+          ["esm6l","esm6ll"],
+          ["esm6ll","esm5ll"],
+          ["esm5ll","esm5l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["es1l","es5l", {"isExhaust":"mainEngine"}],
+          //["es1l","es6l"],
+          //["es2l","es4l"],
+          //["es3l","es4l"],
+
+          //["es7l","es11l"],
+          //["es7l","es12l"],
+          ["es8l","es10l"],
+          ["es9l","es10l"],
+
+          //muffler main shape lengthwise
+          ["esm1l","esm3l", {"isExhaust":"mainEngine"}],
+          ["esm1ll","esm3ll"],
+          ["esm2l","esm4l"],
+          ["esm2ll","esm4ll"],
+          ["esm3l","esm5l", {"isExhaust":"mainEngine"}],
+          ["esm3ll","esm5ll"],
+          ["esm4l","esm6l"],
+          ["esm4ll","esm6ll"],
+
+          //muffler to pipe
+          //upper
+          //["es4l","esm1ll"],
+          //["es6l","esm2ll"],
+          //["es4l","esm1l"],
+          ["es5l","esm1l", {"isExhaust":"mainEngine"}],
+          ["es5l","esm2l"],
+
+          //lower
+          //["esm5ll","es7l"],
+          //["esm6ll","es7l"],
+
+          ["esm5l","es8l"],
+          ["esm6l","es9l"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1l","es4l"],
+          //["es2l","es6l"],
+          ["es3l","es5l"],
+
+          //["es4l","esm2ll"],
+          //["es6l","esm1ll"],
+          //["es6l","esm1l"],
+          ["es5l","esm2ll"],
+          //
+          ["esm5ll","es8l"],
+          ["esm6ll","es9l"],
+          ["esm5ll","es9l"],
+          ["esm6ll","es8l"],
+
+          //["esm5l","es7l"],
+          //["esm6l","es7l"],
+
+          //["es7l","es10l"],
+          ["es8l","es11l"],
+          ["es8l","es12l"],
+          ["es9l","es11l"],
+          ["es9l","es12l"],
+
+          //muffler
+          ["esm1l","esm4l"],
+          ["esm2l","esm3l"],
+          ["esm1ll","esm4ll"],
+          ["esm2ll","esm3ll"],
+
+          ["esm3l","esm6l"],
+          ["esm4l","esm5l"],
+          ["esm3ll","esm6ll"],
+          ["esm4ll","esm5ll"],
+
+          ["esm1ll","esm3l"],
+          ["esm1l","esm3ll"],
+          ["esm2ll","esm4l"],
+          ["esm2l","esm4ll"],
+
+          ["esm3ll","esm5l"],
+          ["esm3l","esm5ll"],
+          ["esm4ll","esm6l"],
+          ["esm4l","esm6ll"],
+
+          //top of muffler
+          ["esm1ll","esm2l"],
+          ["esm2ll","esm1l"],
+          //middle
+          ["esm3ll","esm4l"],
+          ["esm4ll","esm3l"],
+          //bottom of muffler
+          ["esm5ll","esm6l"],
+          ["esm6ll","esm5l"],
+          //rigids
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          ["es1l","esm1l"],
+          ["es1l","esm2l"],
+          ["es1l","esm1ll"],
+          ["es1l","esm2ll"],
+
+          ["es2l","esm1l"],
+          ["es2l","esm2l"],
+          ["es2l","esm1ll"],
+          ["es2l","esm2ll"],
+
+          ["es3l","esm1l"],
+          ["es3l","esm2l"],
+          ["es3l","esm1ll"],
+          ["es3l","esm2ll"],
+
+          ["es10l","esm5l", {"isExhaust":"mainEngine"}],
+          ["es10l","esm6l"],
+          ["es10l","esm5ll"],
+          ["es10l","esm6ll"],
+
+          ["es11l","esm5l"],
+          ["es11l","esm6l"],
+          ["es11l","esm5ll"],
+          ["es11l","esm6ll"],
+
+          ["es12l","esm5l"],
+          ["es12l","esm6l"],
+          ["es12l","esm5ll"],
+          ["es12l","esm6ll"],
+
+          ["esm3l", "es10l"],
+          ["esm4l", "es10l"],
+
+          ["es3l", "esm3ll"],
+          ["es2l", "esm3ll"],
+
+          //muffler
+          ["esm1l","esm5l"],
+          ["esm2l","esm6l"],
+          ["esm1ll","esm5ll"],
+          ["esm2ll","esm6ll"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1l","esa1l"],
+          ["esm1ll","esa1l"],
+          ["esm2l","esa1l"],
+          ["esm2ll","esa1l"],
+
+          ["esm3l","esa1l"],
+          ["esm3ll","esa1l"],
+          ["esm4l","esa1l"],
+          ["esm4ll","esa1l"],
+
+          ["es5l","esa1l"],
+
+          //lower
+          ["esm5l","esa2l"],
+          ["esm5ll","esa2l"],
+          ["esm6l","esa2l"],
+          ["esm6ll","esa2l"],
+
+          ["esm3l","esa2l"],
+          ["esm3ll","esa2l"],
+          ["esm4l","esa2l"],
+          ["esm4ll","esa2l"],
+
+          //["es7l","esa2l"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_L"},
+          {"optional":true},
+          ["esa1l","dc15lll"],
+          ["esa1l","dc15ll"],
+          ["esa1l","dc13ll"],
+
+          ["esm2l","dc15lll"],
+          ["esm2l","dc15ll"],
+          ["esm2l","dc13ll"],
+          {"breakGroup":"exhauststack_b_L"},
+          ["esa2l","dc9ll"],
+          ["esa2l","dc10ll"],
+          ["esa2l","dc11ll"],
+          ["esa2l","dc13ll"],
+
+          ["esm6l","dc9ll"],
+          ["esm6l","dc10ll"],
+          ["esm6l","dc11ll"],
+          ["esm6l","dc13ll"],
+
+          ["es10l","dc11ll"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_L"},
+          ["es10l","ex1l", {"isExhaust":"mainEngine"}],
+          ["es11l","ex1l"],
+          ["es12l","ex1l"],
+
+          ["es8l","ex1r"],
+          ["es9l","ex1r"],
+
+          ["es9l","en2r"],
+          //["es7l","en2r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            //LEFT EXHAUST PIPE
+            {"group":"semi_exhauststack_L"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["esm1ll", "es2l", "es3l"],
+            ["esm1ll", "esm1l", "es5l"],
+            ["es5l", "es2l", "esm1ll"],
+            ["esm1l", "esm2l", "es5l"],
+            ["esm2l", "esm2ll", "es5l"],
+            ["esm2ll", "es3l", "es5l"],
+            ["esm2ll", "esm1ll", "es3l"],
+            ["es5l", "es3l", "es2l"],
+
+            //muffler
+            ["esm1ll","esm4ll","esm3ll"],
+            ["esm1ll","esm2ll","esm4ll"],
+            ["esm3ll","esm6ll","esm5ll"],
+            ["esm3ll","esm4ll","esm6ll"],
+
+            ["esm1l","esm3l","esm4l"],
+            ["esm1l","esm4l","esm2l"],
+            ["esm3l","esm5l","esm6l"],
+            ["esm3l","esm6l","esm4l"],
+
+            ["esm2ll","esm4l","esm4ll"],
+            ["esm2ll","esm2l","esm4l"],
+            ["esm4ll","esm6l","esm6ll"],
+            ["esm4ll","esm4l","esm6l"],
+
+            ["esm1ll","esm3ll","esm3l"],
+            ["esm1ll","esm3l","esm1l"],
+            ["esm3ll","esm5ll","esm5l"],
+            ["esm3ll","esm5l","esm3l"],
+
+            //lower pipe
+            ["esm6ll", "es9l", "es8l"],
+            ["es8l", "esm5ll", "esm6ll"],
+            ["es9l", "es12l", "es11l"],
+            ["es11l", "es8l", "es9l"],
+            ["esm5ll", "es8l", "esm5l"],
+            ["es8l", "es11l", "es10l"],
+            ["es10l", "esm5l", "es8l"],
+            ["esm5l", "es10l", "esm6l"],
+            ["es10l", "es9l", "esm6l"],
+            ["es9l", "esm6ll", "esm6l"],
+            ["es10l", "es12l", "es9l"],
+
+            //inner tip
+            ["es10l","es11l","es12l"],
+            {"group":""},
+    ],
+},
+"semi_exhauststack_R": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Stock Right Exhaust Stack",
+        "value":300,
+    },
+    "slotType" : "semi_exhauststack_R",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_exhauststack_R", ["semi_exhauststack_R"]],
+     ],
+    "soundConfigExhaust": {
+        "$+lowShelfGain":8,
+        "$+highShelfGain":-8,
+        "$+eqFundamentalGain":2,
+    },
+    "nodes": [
+         ["id", "posX", "posY", "posZ"],
+         {"selfCollision":true},
+         {"collision":true},
+         //--RIGHT EXHAUST STACK--
+         {"frictionCoef":0.5},
+         {"nodeWeight":1.0},
+         {"nodeMaterial":"|NM_METAL"},
+         {"group":"semi_exhauststack_R"},
+         //top tip triangle
+         ["es1r",-1.20, -0.815, 2.855, {"collision":false,"selfCollision":false,"exhaustAudioMufflingCoef": 0.1,"exhaustAudioGainChange":-4}],
+         ["es2r",-1.16, -0.79, 2.90],
+         ["es3r",-1.22, -0.86, 2.90],
+
+         //["es4r",-1.09, -0.92, 2.78],
+         ["es5r",-1.05, -0.97, 2.88],
+         //["es6r",-1.10, -0.98, 2.83],
+
+         {"nodeWeight":3},
+         //muffler
+         ["esm1r",-0.98, -0.89, 2.48],
+         ["esm1rr",-1.17, -0.89, 2.48],
+         ["esm2r",-0.98, -1.08, 2.51],
+         ["esm2rr",-1.17, -1.08, 2.51],
+
+         ["esm3r",-0.98, -0.89, 1.78],
+         ["esm3rr",-1.17, -0.89, 1.78],
+         ["esm4r",-0.98, -1.08, 1.78],
+         ["esm4rr",-1.17, -1.08, 1.78],
+
+         ["esm5r",-0.98, -0.89, 1.0],
+         ["esm5rr",-1.17, -0.89, 1.025],
+         ["esm6r",-0.98, -1.08, 1.0],
+         ["esm6rr",-1.17, -1.08, 1.025],
+
+         {"nodeWeight":1.5},
+         //lower pipe
+         {"chemEnergy":200,"burnRate":0.2,"flashPoint":800,"specHeat": 0.2,"selfIgnitionCoef":false,"smokePoint":600,"baseTemp":222,"conductionRadius":0.2},
+         //["es7r",-0.98, -0.97, 0.75],
+         {"chemEnergy":false,"burnRate":false,"flashPoint":false, "specHeat": false,"selfIgnitionCoef":false,"smokePoint":false,"baseTemp":false,"conductionRadius":false},
+         ["es8r",-1.0, -0.93, 0.81],
+         ["es9r",-1.0, -1.01, 0.81],
+
+         ["es10r",-0.50, -0.97, 0.49],
+         ["es11r",-0.52, -0.93, 0.40],
+         ["es12r",-0.52, -1.01, 0.40],
+         //attach nodes
+         {"group":"semi_exhauststack_R_attach"},
+         ["esa1r",-0.80,-0.84, 2.39],
+         ["esa2r",-0.80,-0.84, 1.17],
+         {"group":""},
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //--RIGHT EXHAUST STACK--
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":50000,"beamStrength":"FLT_MAX"},
+          //main shape
+          //triangle perimeter circumference whatevers
+          ["es1r","es2r"],
+          ["es2r","es3r"],
+          ["es3r","es1r"],
+
+          //["es4r","es5r"],
+          //["es5r","es6r"],
+          //["es6r","es4r"],
+
+          //["es7r","es8r"],
+          ["es8r","es9r"],
+          //["es9r","es7r"],
+
+          ["es10r","es11r"],
+          ["es11r","es12r"],
+          ["es12r","es10r"],
+
+          //muffler perimeter square
+          ["esm1r","esm2r"],
+          ["esm2r","esm2rr"],
+          ["esm2rr","esm1rr"],
+          ["esm1rr","esm1r"],
+
+          ["esm3r","esm4r"],
+          ["esm4r","esm4rr"],
+          ["esm4rr","esm3rr"],
+          ["esm3rr","esm3r"],
+
+          ["esm5r","esm6r"],
+          ["esm6r","esm6rr"],
+          ["esm6rr","esm5rr"],
+          ["esm5rr","esm5r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //main shape lengthwise
+          ["es1r","es5r", {"isExhaust":"mainEngine"}],
+          //["es1r","es6r"],
+          //["es2r","es4r"],
+          //["es3r","es4r"],
+
+          //["es7r","es11r"],
+          //["es7r","es12r"],
+          ["es8r","es10r"],
+          ["es9r","es10r"],
+
+          //muffler main shape lengthwise
+          ["esm1r","esm3r", {"isExhaust":"mainEngine"}],
+          ["esm1rr","esm3rr"],
+          ["esm2r","esm4r"],
+          ["esm2rr","esm4rr"],
+          ["esm3r","esm5r", {"isExhaust":"mainEngine"}],
+          ["esm3rr","esm5rr"],
+          ["esm4r","esm6r"],
+          ["esm4rr","esm6rr"],
+
+          //muffler to pipe
+          //upper
+          //["es4r","esm1rr"],
+          //["es6r","esm2rr"],
+          //["es4r","esm1r"],
+          ["es5r","esm1r", {"isExhaust":"mainEngine"}],
+          ["es5r","esm2r"],
+
+          //lower
+          //["esm5rr","es7r"],
+          //["esm6rr","es7r"],
+
+          ["esm5r","es8r"],
+          ["esm6r","es9r"],
+
+          {"beamDeform":8000,"beamStrength":"FLT_MAX"},
+          //cross
+          //["es1r","es4r"],
+          //["es2r","es6r"],
+          ["es3r","es5r"],
+
+          //["es4r","esm2rr"],
+          //["es6r","esm1rr"],
+          //["es6r","esm1r"],
+          ["es5r","esm2rr"],
+          //
+          ["esm5rr","es8r"],
+          ["esm6rr","es9r"],
+          ["esm5rr","es9r"],
+          ["esm6rr","es8r"],
+
+          //["esm5r","es7r"],
+          //["esm6r","es7r"],
+
+          //["es7r","es10r"],
+          ["es8r","es11r"],
+          ["es8r","es12r"],
+          ["es9r","es11r"],
+          ["es9r","es12r"],
+
+          //muffler
+          ["esm1r","esm4r"],
+          ["esm2r","esm3r"],
+          ["esm1rr","esm4rr"],
+          ["esm2rr","esm3rr"],
+
+          ["esm3r","esm6r"],
+          ["esm4r","esm5r"],
+          ["esm3rr","esm6rr"],
+          ["esm4rr","esm5rr"],
+
+          ["esm1rr","esm3r"],
+          ["esm1r","esm3rr"],
+          ["esm2rr","esm4r"],
+          ["esm2r","esm4rr"],
+
+          ["esm3rr","esm5r"],
+          ["esm3r","esm5rr"],
+          ["esm4rr","esm6r"],
+          ["esm4r","esm6rr"],
+
+          //top of muffler
+          ["esm1rr","esm2r"],
+          ["esm2rr","esm1r"],
+          //middle
+          ["esm3rr","esm4r"],
+          ["esm4rr","esm3r"],
+          //bottom of muffler
+          ["esm5rr","esm6r"],
+          ["esm6rr","esm5r"],
+
+          //rigids
+          {"beamSpring":501000,"beamDamp":50},
+          {"beamDeform":4000,"beamStrength":"FLT_MAX"},
+          ["es1r","esm1r"],
+          ["es1r","esm2r"],
+          ["es1r","esm1rr"],
+          ["es1r","esm2rr"],
+
+          ["es2r","esm1r"],
+          ["es2r","esm2r"],
+          ["es2r","esm1rr"],
+          ["es2r","esm2rr"],
+
+          ["es3r","esm1r"],
+          ["es3r","esm2r"],
+          ["es3r","esm1rr"],
+          ["es3r","esm2rr"],
+
+          ["es10r","esm5r", {"isExhaust":"mainEngine"}],
+          ["es10r","esm6r"],
+          ["es10r","esm5rr"],
+          ["es10r","esm6rr"],
+
+          ["es11r","esm5r"],
+          ["es11r","esm6r"],
+          ["es11r","esm5rr"],
+          ["es11r","esm6rr"],
+
+          ["es12r","esm5r"],
+          ["es12r","esm6r"],
+          ["es12r","esm5rr"],
+          ["es12r","esm6rr"],
+
+          ["esm3r", "es10r"],
+          ["esm4r", "es10r"],
+
+          ["es3r", "esm3rr"],
+          ["es2r", "esm3rr"],
+
+          //muffler
+          ["esm1r","esm5r"],
+          ["esm2r","esm6r"],
+          ["esm1rr","esm5rr"],
+          ["esm2rr","esm6rr"],
+
+          //attach to flanges
+          {"beamSpring":1501000,"beamDamp":100},
+          {"beamDeform":5000,"beamStrength":"FLT_MAX"},
+          //upper
+          ["esm1r","esa1r"],
+          ["esm1rr","esa1r"],
+          ["esm2r","esa1r"],
+          ["esm2rr","esa1r"],
+
+          ["esm3r","esa1r"],
+          ["esm3rr","esa1r"],
+          ["esm4r","esa1r"],
+          ["esm4rr","esa1r"],
+
+          ["es5r","esa1r"],
+
+          //lower
+          ["esm5r","esa2r"],
+          ["esm5rr","esa2r"],
+          ["esm6r","esa2r"],
+          ["esm6rr","esa2r"],
+
+          ["esm3r","esa2r"],
+          ["esm3rr","esa2r"],
+          ["esm4r","esa2r"],
+          ["esm4rr","esa2r"],
+
+          //["es7r","esa2r"],
+
+          //attach
+          {"beamSpring":1801000,"beamDamp":200},
+          {"beamDeform":18000,"beamStrength":46000},
+          {"breakGroup":"exhauststack_a_R"},
+          {"optional":true},
+          ["esa1r","dc15rrr"],
+          ["esa1r","dc15rr"],
+          ["esa1r","dc13rr"],
+
+          ["esm2r","dc15rrr"],
+          ["esm2r","dc15rr"],
+          ["esm2r","dc13rr"],
+          {"breakGroup":"exhauststack_b_R"},
+          ["esa2r","dc9rr"],
+          ["esa2r","dc10rr"],
+          ["esa2r","dc11rr"],
+          ["esa2r","dc13rr"],
+
+          ["esm6r","dc9rr"],
+          ["esm6r","dc10rr"],
+          ["esm6r","dc11rr"],
+          ["esm6r","dc13rr"],
+          ["es10r","dc11rr"],
+          {"optional":false},
+          {"breakGroup":"exhauststack_c_R"},
+          ["es10r","ex1r", {"isExhaust":"mainEngine"}],
+          ["es11r","ex1r"],
+          ["es12r","ex1r"],
+
+          ["es8r","ex1l"],
+          ["es9r","ex1l"],
+
+          ["es9r","en2r"],
+          //["es7r","en2r"],
+          {"breakGroup":""},
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+    "triangles": [
+            ["id1:","id2:","id3:"],
+            {"group":"semi_exhauststack_R"},
+            {"groundModel":"metal"},
+            //exhaust tip
+            {"dragCoef":5},
+
+            //upper pipe
+            ["es2r", "esm1rr", "es3r"],
+            ["esm1r", "esm1rr", "es5r"],
+            ["es2r", "es5r", "esm1rr"],
+            ["esm2r", "esm1r", "es5r"],
+            ["esm2rr", "esm2r", "es5r"],
+            ["es3r", "esm2rr", "es5r"],
+            ["esm1rr", "esm2rr", "es3r"],
+            ["es3r", "es5r", "es2r"],
+
+            //muffler
+            ["esm1rr","esm3rr","esm4rr"],
+            ["esm1rr","esm4rr","esm2rr"],
+            ["esm3rr","esm5rr","esm6rr"],
+            ["esm3rr","esm6rr","esm4rr"],
+
+            ["esm1r","esm4r","esm3r"],
+            ["esm1r","esm2r","esm4r"],
+            ["esm3r","esm6r","esm5r"],
+            ["esm3r","esm4r","esm6r"],
+
+            ["esm2rr","esm4rr","esm4r"],
+            ["esm2rr","esm4r","esm2r"],
+            ["esm4rr","esm6rr","esm6r"],
+            ["esm4rr","esm6r","esm4r"],
+
+            ["esm1rr","esm3r","esm3rr"],
+            ["esm1rr","esm1r","esm3r"],
+            ["esm3rr","esm5r","esm5rr"],
+            ["esm3rr","esm3r","esm5r"],
+
+            //lower pipe
+            ["es9r", "esm6rr", "es8r"],
+            ["esm5rr", "es8r", "esm6rr"],
+            ["es12r", "es9r", "es11r"],
+            ["es8r", "es11r", "es9r"],
+            ["es8r", "esm5rr", "esm5r"],
+            ["es11r", "es8r", "es10r"],
+            ["esm5r", "es10r", "es8r"],
+            ["es10r", "esm5r", "esm6r"],
+            ["es9r", "es10r", "esm6r"],
+            ["esm6rr", "es9r", "esm6r"],
+            ["es12r", "es10r", "es9r"],
+
+            //inner tip
+            ["es10r","es12r","es11r"],
+
+            {"group":""},
+
+    ],
+},
+"semi_heatshields_stock": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Perforated Heat Shields",
+        "value":100,
+    },
+    "slotType" : "semi_heatshields",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_heatshield_R", ["semi_exhauststack_R"]],
+         ["semi_heatshield_L", ["semi_exhauststack_L"]],
+     ],
+},
+"semi_heatshields_a": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Extra Ventilated Heat Shields",
+        "value":120,
+    },
+    "slotType" : "semi_heatshields",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_heatshield_a_R", ["semi_exhauststack_R"]],
+         ["semi_heatshield_a_L", ["semi_exhauststack_L"]],
+     ],
+},
+"semi_heatshields_b": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Slotted Heat Shields",
+        "value":150,
+    },
+    "slotType" : "semi_heatshields",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_heatshield_b_R", ["semi_exhauststack_R"]],
+         ["semi_heatshield_b_L", ["semi_exhauststack_L"]],
+     ],
+},
+"semi_heatshields_c": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Ventilated Heat Shields",
+        "value":120,
+    },
+    "slotType" : "semi_heatshields",
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_heatshield_c_R", ["semi_exhauststack_R"]],
+         ["semi_heatshield_c_L", ["semi_exhauststack_L"]],
+     ],
+},
+}

@@ -1,0 +1,276 @@
+{
+"semi_driveshaft": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Rear Driveshaft",
+        "value":550,
+    },
+    "slotType" : "semi_driveshaft",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //driveshaft
+        ["shaft", "driveshaft", "gearbox", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":1.74, "dynamicFriction": 0.00378}],
+    ],
+     "props": [
+        ["func"      , "mesh"           , "idRef:", "idX:", "idY:", "baseRotation"        , "rotation"            , "translation"        , "min", "max", "offset", "multiplier",],
+        ["driveshaft", "semi_driveshaft", "ra1","tra1","ra1ref",    {"x":0, "y":0, "z":90}, {"x":0, "y":1, "z":0} , {"x":0, "y":0, "z":0}, -360, 360, 0, 1,{"breakGroup":"driveshaft","deformGroup":"driveshaft","optional":true}],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //driveshaft
+          {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":0.015, "beamShortBound":0.015},
+          {"beamSpring":0,"beamDamp":0,"beamDeform":3000,"beamStrength":8000},
+          {"beamLimitSpring":5001000,"beamLimitDamp":250},
+          ["tra1","ra1", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+        ],
+},
+"semi_intershaft": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Inter Axle Driveshaft",
+        "value":250,
+    },
+    "slotType" : "semi_intershaft",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //intershaft
+        ["shaft", "intershaft", "transfercase", 2, {"electricsName":"intershaft", "breakTriggerBeam":"intershaft", "uiName":"Inter Axle Driveshaft", "friction":1.74, "dynamicFriction": 0.00378}],
+    ],
+    "props": [
+        ["func", "mesh"                , "idRef:", "idX:", "idY:", "baseRotation"        , "rotation"               , "translation"        , "min", "max", "offset", "multiplier"],
+        ["intershaft"  , "semi_intershaft", "ra2","ra11","ra11ref",  {"x":0, "y":180, "z":90}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1,{"breakGroup":"intershaft","deformGroup":"intershaft","optional":true}],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //interaxle driveshaft
+          {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":0.15, "beamShortBound":0.1},
+          {"beamSpring":0,"beamDamp":0,"beamDeform":2000,"beamStrength":8000},
+          {"beamLimitSpring":5001000,"beamLimitDamp":250},
+          ["ra2","ra11", {"name":"intershaft","optional":true,"breakGroup":"intershaft","deformGroup":"intershaft"}],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+},
+"semi_driveshaft_long": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Long Driveshaft",
+        "value":700,
+    },
+    "slotType" : "semi_driveshaft_long",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //driveshaft
+        ["shaft", "intershaft", "gearbox", 1, {"breakTriggerBeam":"driveshaft", "uiName":"Rear Driveshaft", "electricsName":"driveshaft", "friction":1.74, "dynamicFriction": 0.00378}],
+    ],
+    "props": [
+        ["func", "mesh"                , "idRef:", "idX:", "idY:", "baseRotation"        , "rotation"               , "translation"        , "min", "max", "offset", "multiplier"],
+        ["driveshaft", "semi_driveshaft_long", "tra1","ra11","ra11ref",  {"x":0.5, "y":180, "z":90}, {"x":0, "y":1, "z":0}    , {"x":0, "y":0, "z":0}, -360, 360, 0, 1,{"breakGroup":"driveshaft","deformGroup":"driveshaft","optional":true}],
+    ],
+    "beams": [
+          ["id1:", "id2:"],
+          //long driveshaft
+          {"beamPrecompression":1.0, "beamType":"|BOUNDED", "beamLongBound":0.01, "beamShortBound":0.01},
+          {"beamSpring":0,"beamDamp":0,"beamDeform":3000,"beamStrength":8000},
+          {"beamLimitSpring":5001000,"beamLimitDamp":250},
+          ["ra11","tra1", {"name":"driveshaft","optional":true,"breakGroup":"driveshaft","deformGroup":"driveshaft"}],
+          {"beamPrecompression":1, "beamType":"|NORMAL", "beamLongBound":1, "beamShortBound":1},
+    ],
+},
+"semi_transfer_case": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Locking Inter Axle Transfer Case",
+        "value":900,
+    },
+    "slotType" : "semi_transfer_case",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_intershaft","semi_intershaft", "Inter Axle Driveshaft"],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //lockable diff between front rear and rear rear diff
+        ["torsionReactor", "torsionReactorR", "driveshaft", 1, {}],
+        ["differential", "transfercase", "torsionReactorR", 1, {"diffType":["open","locked"], "lockTorque":100000, "uiName":"Center Differential"}],
+    ],
+    "transfercase": {
+        "friction": 1.56,
+        "dynamicFriction": 0.00179,
+        "torqueLossCoef": 0.015,
+    },
+    "torsionReactorR": {
+        "torqueReactionNodes:":["en4l","en3l","en1r"],
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_transfercase", ["semi_axle_R_1","semi_driveshaft"]],
+    ],
+},
+
+"semi_transfer_case_singleaxle": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Single Axle Transfer Case",
+        "value":200,
+    },
+    "slotType" : "semi_transfer_case",
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //replace diff with direct shaft to front rear diff
+        ["torsionReactor", "torsionReactorR", "driveshaft", 1, {}],
+        ["shaft", "transfercase", "torsionReactorR", 1, {"uiName":"Pinion Shaft"}],
+    ],
+    "transfercase": {
+        "friction": 1.05,
+        "dynamicFriction": 0.00145,
+    },
+    "torsionReactorR": {
+        "torqueReactionNodes:":["en4l","en3l","en1r"],
+    },
+    "flexbodies": [
+         ["mesh", "[group]:", "nonFlexMaterials"],
+         ["semi_transfercase", ["semi_axle_R_1","semi_driveshaft"]],
+    ],
+},
+"semi_differential_R_1": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Open Front Rear Differential",
+        "value":900,
+    },
+    "slotType" : "semi_differential_R_1",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_finaldrive_R_1","semi_finaldrive_R_1_293", "Front Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //rear diff
+        ["differential", "differential_R_1", "transfercase", 1, {"diffType":"open", "uiName":"Front Rear Differential"}],
+    ],
+    "differential_R_1": {
+        "friction": 18.4,
+        "dynamicFriction": 0.0088,
+        "torqueLossCoef": 0.03,
+    },
+},
+"semi_differential_R_1_locking": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Locking Front Rear Differential",
+        "value":1800,
+    },
+    "slotType" : "semi_differential_R_1",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_finaldrive_R_1","semi_finaldrive_R_1_355", "Front Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //rear diff
+        ["differential", "differential_R_1", "transfercase", 1, {"diffType":["open","locked"], "lockTorque":5000000, "uiName":"Front Rear Differential"}],
+    ],
+    "differential_R_1": {
+        "friction": 18.4,
+        "dynamicFriction": 0.0088,
+        "torqueLossCoef": 0.03,
+    },
+},
+"semi_differential_R_2": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Open Rear Rear Differential",
+        "value":900,
+    },
+    "slotType" : "semi_differential_R_2",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_finaldrive_R_2","semi_finaldrive_R_2_293", "Rear Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //rear diff
+        ["differential", "differential_R_2", "intershaft", 1, {"diffType":"open", "friction":20, "uiName":"Rear Rear Differential"}],
+    ],
+    "differential_R_2": {
+        "friction": 18.4,
+        "dynamicFriction": 0.0088,
+        "torqueLossCoef": 0.03,
+    },
+},
+"semi_differential_R_2_locking": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"Locking Rear Rear Differential",
+        "value":1800,
+    },
+    "slotType" : "semi_differential_R_2",
+    "slots": [
+        ["type", "default", "description"],
+        ["semi_finaldrive_R_2","semi_finaldrive_R_2_355", "Rear Rear Final Drive", {"coreSlot":true}],
+    ],
+    "powertrain" : [
+        ["type", "name", "inputName", "inputIndex"],
+        //rear diff
+        ["differential", "differential_R_2", "intershaft", 1, {"diffType":["open","locked"], "lockTorque":5000000, "uiName":"Rear Rear Differential"}],
+    ],
+    "differential_R_2": {
+        "friction": 18.4,
+        "dynamicFriction": 0.0088,
+        "torqueLossCoef": 0.03,
+    },
+},
+"semi_finaldrive_R_1_293": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"2.93:1 Front Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "semi_finaldrive_R_1",
+
+    "differential_R_1" : {
+        "gearRatio":2.93,
+    },
+},
+"semi_finaldrive_R_2_293": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"2.93:1 Rear Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "semi_finaldrive_R_2",
+
+    "differential_R_2" : {
+        "gearRatio":2.93,
+    },
+},
+"semi_finaldrive_R_1_355": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.55:1 Front Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "semi_finaldrive_R_1",
+
+    "differential_R_1" : {
+        "gearRatio":3.55,
+    },
+},
+"semi_finaldrive_R_2_355": {
+    "information":{
+        "authors":"BeamNG",
+        "name":"3.55:1 Rear Rear Final Drive",
+        "value":150,
+    },
+
+    "slotType" : "semi_finaldrive_R_2",
+
+    "differential_R_2" : {
+        "gearRatio":3.55,
+    },
+},
+}
