@@ -1,0 +1,17 @@
+// for file names
+
+for i in `ls medium_*` ; do fname=$i ; change=big ; mname="${fname/medium/$change}" ; echo $fname, $mname ; mv $fname $mname ; done
+
+
+
+// for in the files
+
+for fname in `ls ancord*.jbeam` ; do echo $fname ; sed -i 's/midsize/ancord/g' $fname ; done
+
+
+for fname in `ls materials.cs` ; do echo $fname ; sed -i 's|vehicles/ultrike/|vehicles/ultrike/txt/|g' $fname ; done
+
+
+for fname in `ls fullsize*.jbeam` ; do echo $fname ; sed -i 's/Gavril Grand Marshal//g' $fname ; done
+
+
